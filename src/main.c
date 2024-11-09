@@ -5,6 +5,12 @@
 #include <semaphore.h>
 #include <fcntl.h>
 
+#include "utils/Parameters.h"
+
+#define ENABLE_DEBUG 0
+
+
+
 /**
  * @brief Main function
  * 
@@ -14,16 +20,56 @@
  */
 int main(int argc, char **argv)
 {
-    if(argc < 2) {
-        puts("Nenhum argumento foi fornecido.");
-        return 1;
+    // Depois do debug, estas variáveis devem ficar const
+    char *FILE_NAME;
+    int NUMBER_OF_PROCESSES;
+    int EXECUTION_TIME;
+    
+
+    if(ENABLE_DEBUG){
+        argc = 4;
+        FILE_NAME = "instances_2.txt";
+        NUMBER_OF_PROCESSES = 3;
+        EXECUTION_TIME = 1000;
+
+        printf("%s\n", FILE_NAME);
+        printf("%i\n", NUMBER_OF_PROCESSES);
+        printf("%i\n\n", EXECUTION_TIME);
+
+    } else {
+        FILE_NAME = argv[1];
+        NUMBER_OF_PROCESSES = atoi(argv[2]);
+        EXECUTION_TIME = atoi(argv[3]);
     }
 
-    const int NUMBER_OF_PROCESSES = atoi(argv[1]);
+
+
+    if(checkNumberOfArguments(argc)) {
+        puts("ERRO: Falta de argumentos.");
+        return EXIT_FAILURE;
+
+    } else if (checkFileName(FILE_NAME)) {
+        printf("ERRO: Ficheiro \"%s\" não existe.\n", FILE_NAME);
+        return EXIT_FAILURE;
+
+    } else if (checkNumberOfProcesses(NUMBER_OF_PROCESSES)) {
+        puts("ERRO: O número de processos tem de ser, pelo menos, 2.");
+        return EXIT_FAILURE;
+        
+    } else if (EXECUTION_TIME < MINIMUM_MILISECONDS) {
+        puts("ERRO: O número de milisegundos tem de ser, pelo menos, 1000.");
+        return EXIT_FAILURE;
+
+    }
+
+    puts("Sucesso.");
+
+    return 0;
+    /*
 
     printf("%d\n", NUMBER_OF_PROCESSES);
 
-	switch(NUMBER_OF_PROCESSES){
+	switch(NUMBER_OF_PROCESSES) {
         case 5:
             printf("argument is five.\n");
             break;
@@ -38,4 +84,6 @@ int main(int argc, char **argv)
     
 
     return EXIT_SUCCESS;
+
+    // */
 }

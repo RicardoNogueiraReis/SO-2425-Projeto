@@ -1,18 +1,30 @@
-default:
+# Variáveis
+CC = gcc
+CFLAGS = -Wall -pthread
+DEBUG_FLAGS = -g
+SRC = main.c utils/Parameters.c
+TARGET = prog
+
+# Targets
+default: clean
 	clear
-	gcc -Wall -o prog main.c -pthread
-go:
-	make
-	./prog $(ARGS)
-run:
+	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
+
+# make go ARGS="instances_2.txt 2 1000"
+go: default
+	./$(TARGET) $(ARGS)
+
+run: default
 	clear
-	./prog
-debug:
+	./$(TARGET)
+
+debug: clean
 	clear
-	gcc -Wall -o prog -g main.c -lm -pthread
-valgrind:
-	clear
-	gcc -Wall -o prog -g main.c -lm
-	valgrind --leak-check=full ./prog
+	$(CC) $(CFLAGS) $(DEBUG_FLAGS) -o $(TARGET) $(SRC)
+
+valgrind: debug
+	valgrind --leak-check=full ./$(TARGET) $(ARGS)
+
 clean:
-	rm -f prog
+	rm -f $(TARGET)
+	clear
