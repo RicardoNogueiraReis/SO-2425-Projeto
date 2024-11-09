@@ -2,8 +2,8 @@ default:
 	clear
 	gcc -Wall -o prog main.c -pthread
 go:
-	gcc -Wall -o prog main.c -pthread
-	./prog
+	make
+	./prog $(ARGS)
 run:
 	clear
 	./prog
