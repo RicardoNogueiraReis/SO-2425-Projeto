@@ -18,7 +18,7 @@
 	- Código funciona parcialmente e o;
 	- Código é legível.
 
-> [!info]
+> [!NOTE]
 > Lembrem-se que não vão ser os únicos a ler o que escreveram e mais tarde poderão vir a necessitar de rever o que escreveram
 
 
