@@ -70,6 +70,20 @@ int funcao2(int outroParameteros) {
 	- Mesmo que o código seja auto explicativo, recomenda-se que incluam uma breve descrição antes de cada função (vejam como se faz no ficheiro ``/pdfs/Doxygen.pdf``);
 	- Indicar o que a função faz, os seus parâmetros e o valor de retorno (se aplicável).
 
+```c
+/**
+ * Descrição da função.
+ * 
+ * @param parametro Tipo e descrição do parâmetro.
+ * @return Descrição do valor de retorno.
+ */
+int minhaFuncao(int parametro) {
+    // Código da função
+    
+}
+
+```
+
 ### 5. Inteligência Artificial <a name="5"></a>
 
 - **Não usem ChatGPT para fazer o código todo por vocês**:
