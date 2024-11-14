@@ -6,8 +6,9 @@
 #include <fcntl.h>
 
 #include "utils/Parameters.h"
+#include "adts/Vertex.h"
 
-#define ENABLE_DEBUG 0
+#define ENABLE_DEBUG 1
 
 
 
@@ -61,7 +62,7 @@ int main(int argc, char **argv)
         return EXIT_FAILURE;
 
     }
-
+    
     puts("Sucesso.");
 
     return 0;

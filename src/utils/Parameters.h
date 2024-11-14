@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #pragma once
 
 #define MINIMUM_MILISECONDS 1000
@@ -13,7 +11,7 @@
  * @param numberArgs Number of arguments passed
  * @return int 0 - if all four are present, else if there's arguments lacking.
  */
-int checkNumberOfArguments(int numberArgs);
+int checkNumberOfArguments(const int numberArgs);
 
 /**
  * @brief Checks if the file exists by trying to open it
@@ -23,4 +21,12 @@ int checkNumberOfArguments(int numberArgs);
  */
 int checkFileName(const char* fileName);
 
-int checkNumberOfProcesses(int numberProcesses);
+// TODO
+
+/**
+ * @brief 
+ * 
+ * @param numberProcesses 
+ * @return int 
+ */
+int checkNumberOfProcesses(const int numberProcesses);

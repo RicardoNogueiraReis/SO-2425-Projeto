@@ -4,7 +4,7 @@
 
 #include "Parameters.h"
 
-int checkNumberOfArguments(int numberArgs) {
+int checkNumberOfArguments(const int numberArgs) {
     return numberArgs < MINIMUM_NUMBER_OF_ARGUMENTS;
 
 }
@@ -24,7 +24,7 @@ int checkFileName(const char* fileName) {
     return 1; // Erro
 }
 
-int checkNumberOfProcesses(int numberProcesses) {
+int checkNumberOfProcesses(const int numberProcesses) {
     return numberProcesses < MINIMUM_NUMBER_OF_PROCESSES;
 
 }
