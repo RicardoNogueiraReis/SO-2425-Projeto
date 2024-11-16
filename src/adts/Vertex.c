@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
-#include "Vertex.h"
+#include "vertex.h"
 
 
 pt_Vertex vertex_init(const int avenida, const int rua) {

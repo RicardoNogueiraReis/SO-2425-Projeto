@@ -1,5 +1,6 @@
-#include <stdbool.h>
 #pragma once
+
+#include <stdbool.h>
 
 typedef struct vertex Vertex;
 typedef Vertex *pt_Vertex;

@@ -3,6 +3,11 @@
         "parameters.h": "c",
         "stdlib.h": "c",
         "stdio.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "stdbool.h": "c",
+        "vertex.h": "c",
+        "cidadao.h": "c",
+        "data.h": "c",
+        "supermercado.h": "c"
     }
 }

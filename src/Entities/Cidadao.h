@@ -1,3 +1,5 @@
+#pragma once
+
 typedef struct cidadao {
     int id;
     int avenida;

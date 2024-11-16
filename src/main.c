@@ -6,9 +6,11 @@
 #include <fcntl.h>
 
 #include "utils/parameters.h"
-#include "adts/Vertex.h"
+#include "utils/data.h"
+#include "adts/vertex.h"
+#include "entities/cidadao.h"
 
-#define ENABLE_DEBUG 0
+#define ENABLE_DEBUG 1
 
 
 
@@ -29,13 +31,75 @@ int main(int argc, char **argv)
 
     if(ENABLE_DEBUG){
         argc = 4;
-        FILE_NAME = "instances_2.txt";
+        FILE_NAME = "instances_8.txt";
         NUMBER_OF_PROCESSES = 3;
         EXECUTION_TIME = 1000;
 
         printf("%s\n", FILE_NAME);
         printf("%i\n", NUMBER_OF_PROCESSES);
         printf("%i\n\n", EXECUTION_TIME);
+
+
+        // Teste de inicialização
+        ////////////////////////////////////////////
+
+        pt_Vertex v = vertex_init(1, 2);
+
+        printf("Vértice: Avenida %d, Rua %d, Foi Visitado: %s\n", 
+            v->Avenida, 
+            v->Rua, 
+            v->FoiVisitado ? "true" : "false");
+
+        free(v);
+
+        pt_Cidadao c = cidadao_init(1, 3, 2);
+
+        printf("Cidadão ID: %d, Avenida: %d, Rua: %d\n", 
+            c->id, 
+            c->avenida, 
+            c->rua);
+
+        free(c);
+
+
+        // Teste de leitura de ficheiros
+        ////////////////////////////////////////////
+
+        pt_FileTestData data = readFileData(FILE_NAME);
+
+        printf("Avenidas: %d, Ruas: %d\n", data->TotalAvenidas, data->TotalRuas);
+        printf("Supermercados: %d, Cidadãos: %d\n", data->NumeroSupermercados, data->NumeroCidadaos);
+
+
+        // Teste de ouput dos dados
+        ////////////////////////////////////////////
+
+        puts("Cidadãos\n");
+        for (size_t i = 0; i < data->NumeroCidadaos; i++)
+        {
+            printf("\tCidadãos: %d (%d,%d) \n",
+                                                data->Cidadaos[i]->id,
+                                                data->Cidadaos[i]->avenida,
+                                                data->Cidadaos[i]->rua
+            );
+        }
+
+        puts("Supermercados\n");
+        for (size_t i = 0; i < data->NumeroSupermercados; i++)
+        {
+            printf("\tSupermercados: %d (%d,%d) \n", 
+                                                data->Supermercados[i]->id,
+                                                data->Supermercados[i]->avenida,
+                                                data->Supermercados[i]->rua
+            );
+        }
+
+
+        // Libertação de memória
+        ////////////////////////////////////////////
+        freeEveryEntity(data);
+
+        freeData(data);
 
     } else {
         FILE_NAME = argv[1];
