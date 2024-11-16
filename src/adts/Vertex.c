@@ -7,11 +7,18 @@
 
 pt_Vertex vertex_init(const int avenida, const int rua) {
     
-    pt_Vertex newVertex; // TODO: fazer a alocação de memória
-    newVertex.Avenida = avenida;
-    newVertex.Rua = rua;
+    pt_Vertex newVertex = malloc(sizeof(Vertex));
 
-    newVertex.FoiVisitado = false;
+    if (!newVertex) {
+        puts("ERRO: Falha ao alocar memória para o vértice.");
+        exit(EXIT_FAILURE);
+    }
+
+
+    newVertex->Avenida = avenida;
+    newVertex->Rua = rua;
+
+    newVertex->FoiVisitado = false;
 
     return newVertex;
 }

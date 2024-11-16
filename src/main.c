@@ -5,10 +5,10 @@
 #include <semaphore.h>
 #include <fcntl.h>
 
-#include "utils/Parameters.h"
+#include "utils/parameters.h"
 #include "adts/Vertex.h"
 
-#define ENABLE_DEBUG 1
+#define ENABLE_DEBUG 0
 
 
 
@@ -66,25 +66,5 @@ int main(int argc, char **argv)
     puts("Sucesso.");
 
     return 0;
-    /*
 
-    printf("%d\n", NUMBER_OF_PROCESSES);
-
-	switch(NUMBER_OF_PROCESSES) {
-        case 5:
-            printf("argument is five.\n");
-            break;
-
-        case 6:
-            printf("argument is six.\n");
-            break;
-
-        default:
-            printf("Invalid argument.\n");
-    }
-    
-
-    return EXIT_SUCCESS;
-
-    // */
 }

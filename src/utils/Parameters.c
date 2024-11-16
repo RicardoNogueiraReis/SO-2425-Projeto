@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "Parameters.h"
+#include "parameters.h"
 
 int checkNumberOfArguments(const int numberArgs) {
     return numberArgs < MINIMUM_NUMBER_OF_ARGUMENTS;
@@ -21,6 +21,7 @@ int checkFileName(const char* fileName) {
         return 0;
     }
 
+    
     return 1; // Erro
 }
 
