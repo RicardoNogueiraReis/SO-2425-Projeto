@@ -10,7 +10,7 @@
 #include "utils/parameters.h"
 #include "utils/data.h"
 #include "adts/vertex.h"
-#include "entities/cidadao.h"
+#include "entities/Cidadao.h"
 
 #define ONE_MILISECOND 1000
 

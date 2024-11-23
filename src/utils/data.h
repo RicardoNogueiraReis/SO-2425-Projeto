@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../entities/cidadao.h"
-#include "../entities/supermercado.h"
+#include "../Entities/cidadao.h"
+#include "../Entities/supermercado.h"
 
 #define PATH_FILENAME_SIZE 31
 

@@ -3,8 +3,8 @@
 #include <string.h>
 
 #include "data.h"
-#include "../entities/cidadao.h"
-#include "../entities/supermercado.h"
+#include "../Entities/cidadao.h"
+#include "../Entities/supermercado.h"
 
 void freeData(pt_FileTestData data);
 void readEntityFromFile(pt_FileTestData data, FILE *file, char entity);
