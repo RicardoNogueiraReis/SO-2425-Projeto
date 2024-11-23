@@ -4,11 +4,15 @@
 #include <unistd.h>
 #include <semaphore.h>
 #include <fcntl.h>
+#include <signal.h>
+#include <sys/mman.h>
 
 #include "utils/parameters.h"
 #include "utils/data.h"
 #include "adts/vertex.h"
 #include "entities/cidadao.h"
+
+#define ONE_MILISECOND 1000
 
 #define ENABLE_DEBUG 1
 
@@ -33,7 +37,7 @@ int main(int argc, char **argv)
         argc = 4;
         FILE_NAME = "instances_8.txt";
         NUMBER_OF_PROCESSES = 3;
-        EXECUTION_TIME = 1000;
+        EXECUTION_TIME = 5000;
 
         printf("%s\n", FILE_NAME);
         printf("%i\n", NUMBER_OF_PROCESSES);
@@ -99,8 +103,6 @@ int main(int argc, char **argv)
         ////////////////////////////////////////////
         freeEveryEntity(data);
 
-        freeData(data);
-
     } else {
         FILE_NAME = argv[1];
         NUMBER_OF_PROCESSES = atoi(argv[2]);
@@ -126,9 +128,45 @@ int main(int argc, char **argv)
         return EXIT_FAILURE;
 
     }
+
+
+    // Shared Memory
+    /*
+    int size = 64;
+    int protection = PROT_READ | PROT_WRITE;
+    int visibility = MAP_ANONYMOUS | MAP_SHARED;
+
+    void *shmem = mmap(NULL, size, protection, visibility, 0, 0);
     
+    // */
+    int pids[NUMBER_OF_PROCESSES];
+
+    // Fork worker processes
+    for (int i = 0; i < NUMBER_OF_PROCESSES; i++) {
+        
+        pids[i] = fork();
+
+        if (pids[i] == 0) {
+            
+            while(1){
+                printf("Worker process #%d!\n", i);
+
+            }
+
+        }
+    }
+
+
+    usleep(EXECUTION_TIME * ONE_MILISECOND);
+    
+    // Kill worker processes
+    for (int i = 0; i < NUMBER_OF_PROCESSES; i++) {
+        kill(pids[i], SIGKILL);
+
+    }
+
     puts("Sucesso.");
 
-    return 0;
+    return EXIT_SUCCESS;
 
 }
