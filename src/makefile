@@ -2,7 +2,7 @@
 CC = gcc
 CFLAGS = -Wall -pthread
 DEBUG_FLAGS = -g
-SRC = main.c utils/Parameters.c adts/vertex.c entities/cidadao.c entities/supermercado.c utils/data.c
+SRC = main.c utils/Parameters.c adts/Vertex.c Entities/Cidadao.c Entities/supermercado.c utils/data.c
 
 TARGET = prog
 
