@@ -5,10 +5,10 @@
 #include <semaphore.h>
 #include <fcntl.h>
 
-#include "utils/parameters.h"
+#include "utils/Parameters.h"
 #include "utils/data.h"
-#include "adts/vertex.h"
-#include "entities/cidadao.h"
+#include "adts/Vertex.h"
+#include "Entities/Cidadao.h"
 
 #define ENABLE_DEBUG 1
 

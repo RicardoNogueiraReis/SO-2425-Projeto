@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "parameters.h"
+#include "Parameters.h"
 
 int checkNumberOfArguments(const int numberArgs) {
     return numberArgs < MINIMUM_NUMBER_OF_ARGUMENTS;
