@@ -2,7 +2,9 @@
 CC = gcc
 CFLAGS = -Wall -pthread
 DEBUG_FLAGS = -g
-SRC = main.c utils/parameters.c adts/vertex.c entities/cidadao.c entities/supermercado.c utils/data.c
+SRC = main.c utils/parameters.c adts/esquina.c entities/cidadao.c entities/supermercado.c utils/data.c algoritmos/fscs.c
+
+SRC_TESTE = main-teste.c utils/parameters.c adts/esquina.c entities/cidadao.c entities/supermercado.c utils/data.c algoritmos/fscs.c
 
 TARGET = prog
 
@@ -29,3 +31,14 @@ valgrind: debug
 clean:
 	rm -f $(TARGET)
 	clear
+
+# ============== +
+# Teste de dados |
+# ============== +
+teste: clean
+	$(CC) $(CFLAGS) -o $(TARGET) $(SRC_TESTE)
+
+teste-valgrind: clean
+	clear
+	$(CC) $(CFLAGS) $(DEBUG_FLAGS) -o $(TARGET) $(SRC_TESTE)
+	valgrind --leak-check=full ./$(TARGET) $(ARGS)
