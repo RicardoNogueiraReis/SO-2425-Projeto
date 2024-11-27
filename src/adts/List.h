@@ -2,7 +2,7 @@
 
 #define LIST_SUCCESS 0
 #define LIST_INVALID_POSITION 1
-#define LIST_IS_NULL 3
+#define LIST_IS_NULL 2
 
 #pragma once
 
@@ -15,6 +15,7 @@ typedef int ListElem;
 /**
  * @brief Creates a new empty list with up to 4 elements from type ListElem.
  * 
+ * @param list The List Pointer
  * @return int - Success (0) or Error (>0)
  */
 int listCreate(PtList list);

@@ -2,12 +2,12 @@
 #include <stdio.h>
 #include "List.h"
 
-#define LIST_INITIAL_SIZE 4
+#define MAX_LIST_SIZE 4
 
 typedef struct list
 {
     int size;
-    ListElem elements[LIST_INITIAL_SIZE];
+    ListElem elements[MAX_LIST_SIZE];
 }List;
 
 int listCreate(PtList list) {
