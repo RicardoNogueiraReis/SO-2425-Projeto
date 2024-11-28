@@ -1,23 +1,14 @@
 #pragma once
 
-#include <stdbool.h>
-
 typedef struct esquina Esquina;
 typedef Esquina *pt_Esquina;
 
-typedef struct esquina {
-    int Avenida;        // A (1 a M) NORTE-SUL
-    int Rua;            // B (1 a N) ESTE-OESTE.
-    bool FoiVisitado;   // Por defeito, true (0)
+void esquina_init(pt_Esquina esquina, const int avenida, const int rua);
 
-} Esquina;
+void esquina_getAvenida(pt_Esquina esquina, int *avenida);
 
-pt_Esquina esquina_init(const int avenida, const int rua);
+void esquina_getRua(pt_Esquina esquina, int *rua);
 
-void print_mapa(pt_Esquina **mapa, const int avenidas, const int ruas);
+void esquina_Visit(pt_Esquina esquina);
 
-void print_esquina(pt_Esquina esquina, const int avenidas, const int ruas);
-
-pt_Esquina** mapa_init(const int avenidas, const int ruas);
-
-void freeMapa(pt_Esquina** mapa, const int avenida, const int rua);
+void print_esquina(pt_Esquina esquina);

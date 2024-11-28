@@ -1,80 +1,52 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #include "esquina.h"
 
-pt_Esquina esquina_init(const int avenida, const int rua) {
+typedef struct esquina {
+    int Avenida;        // A (1 a M) NORTE-SUL.
+    int Rua;            // B (1 a N) ESTE-OESTE.
+    bool FoiVisitado;   // Por defeito, true (0)
 
-    pt_Esquina newEsquina = malloc(sizeof(Esquina));
+} Esquina;
 
-    if (!newEsquina)
-    {
-        puts("ERRO: Falha ao alocar memória para a esquina.");
-        exit(EXIT_FAILURE);
-    }
+void esquina_init(pt_Esquina esquina, const int avenida, const int rua) {
+    if (esquina == NULL)
+        return;
+    
+    esquina->Avenida = avenida;
+    esquina->Rua = rua;
 
-    newEsquina->Avenida = avenida;
-    newEsquina->Rua = rua;
-
-    newEsquina->FoiVisitado = false;
-
-    return newEsquina;
+    esquina->FoiVisitado = false;
 }
 
-pt_Esquina** mapa_init(const int avenidas, const int ruas) {
-    pt_Esquina **newMapa = malloc(avenidas * sizeof(pt_Esquina *));
-
-    for (int i = 0; i < avenidas; i++) {
-        newMapa[i] = malloc(ruas * sizeof(pt_Esquina));
-
-        for (int j = 0; j < ruas; j++) {
-            newMapa[i][j] = esquina_init(i, j);
-
-        }
-    }
-
-    return newMapa;
+void esquina_getAvenida(pt_Esquina esquina, int *avenida) {
+    if (esquina == NULL)
+        return;
+    
+    *avenida = esquina->Avenida;
 }
 
-void print_esquina(pt_Esquina esquina, const int avenidas, const int ruas) {
+void esquina_getRua(pt_Esquina esquina, int *rua) {
+    if (esquina == NULL)
+        return;
+    
+    *rua = esquina->Rua;
+}
+
+void esquina_Visit(pt_Esquina esquina) {
+    if (esquina == NULL)
+        return;
+
+    esquina->FoiVisitado = true;
+}
+
+void print_esquina(pt_Esquina esquina) {
     if(esquina == NULL) {
         printf("NULL ");
         return;
     }
 
     printf("[%d][%d] ", esquina->Avenida, esquina->Rua);
-}
-
-void print_mapa(pt_Esquina **mapa, const int avenidas, const int ruas) {
-
-    for (int i = 0; i < avenidas; i++) {
-
-        for (int j = 0; j < ruas; j++) {
-            if(mapa[i][j] == NULL) {
-                printf("NULL ");
-                continue;
-            }
-
-            printf("[%d][%d] ", i, j);
-
-        }
-
-        puts("");
-    }
-
-}
-
-void freeMapa(pt_Esquina **mapa, const int avenidas, const int ruas) {
-    for (int i = 0; i < avenidas; i++)
-    {
-        for (int j = 0; j < ruas; j++)
-        {
-            free(mapa[i][j]);
-        }
-
-        free(mapa[i]);
-    }
-
-    free(mapa);
-
 }
