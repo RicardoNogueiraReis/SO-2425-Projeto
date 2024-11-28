@@ -3,8 +3,8 @@
 #include <string.h>
 
 #include "../adts/esquina.h"
-#include "../entities/cidadao.h"
-#include "../entities/supermercado.h"
+#include "../Entities/cidadao.h"
+#include "../Entities/supermercado.h"
 #include "../utils/data.h"
 
 int calculateMaxSolutions(const int numCidadaos, const int numSupermercados);

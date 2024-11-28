@@ -77,7 +77,7 @@ bool stackIsEmpty(PtStack stack);
 int stackClear(PtStack stack);
 
 /**
- * @brief Prints the elements of a stack.
+ * @brief Prints the elements of a stack. (Prints the Best Soluction of the Citizen)
  * 
  * @param stack The Stack
  */

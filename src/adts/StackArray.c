@@ -82,8 +82,8 @@ void stackPrint(PtStack stack) {
         return;
     }
     
-    printf("Stack Elements: %d", stack->elements[stack->size-1]);
-    for (int i = stack->size-2; i >= 0; i--)
+    printf("Caminho Solução: %d", stack->elements[0]);
+    for (int i = 0; i < stack->size; i++)
     {
         printf(" | %d", stack->elements[i]);
     }

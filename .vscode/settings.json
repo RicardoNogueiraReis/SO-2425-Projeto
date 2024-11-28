@@ -9,6 +9,7 @@
         "data.h": "c",
         "supermercado.h": "c",
         "esquina.h": "c",
-        "list.h": "c"
+        "list.h": "c",
+        "fscs.h": "c"
     }
 }
