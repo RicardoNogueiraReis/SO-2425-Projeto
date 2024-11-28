@@ -3,21 +3,42 @@
 
 #include "supermercado.h"
 
+typedef struct supermercado {
+    int id;
+    int avenida;
+    int rua;
+    // Lista de vertex
+    
+} Supermercado;
 
+void supermercado_init(pt_supermercado novoSupermercado, const int id, const int avenida, const int rua) {
 
-pt_supermercado supermercado_init(const int id, const int avenida, const int rua) {
+    novoSupermercado->id = id;
+    novoSupermercado->avenida = avenida;
+    novoSupermercado->rua = rua;
 
-    pt_supermercado newSupermercado = malloc(sizeof(Supermercado));
+}
 
-    if (!newSupermercado) {
-        puts("ERRO: Falha ao alocar memória para o cidadão.");
-        exit(EXIT_FAILURE);
-    }
+void supermercado_getId(pt_supermercado supermercado, int *id) {
+    if (supermercado == NULL)
+        return;
+    
+    *id = supermercado->id;
+    
+}
 
-    newSupermercado->id = id;
-    newSupermercado->avenida = avenida;
-    newSupermercado->rua = rua;
+void supermercado_getAvenida(pt_supermercado supermercado, int *avenida) {
+    if (supermercado == NULL)
+        return;
+    
+    *avenida = supermercado->avenida;
 
-    return newSupermercado;
+}
+
+void supermercado_getRua(pt_supermercado supermercado, int *rua) {
+    if (supermercado == NULL)
+        return;
+    
+    *rua = supermercado->rua;
 
 }

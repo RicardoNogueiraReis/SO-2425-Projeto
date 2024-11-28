@@ -5,9 +5,10 @@
         "stdio.h": "c",
         "string.h": "c",
         "stdbool.h": "c",
-        "vertex.h": "c",
         "cidadao.h": "c",
         "data.h": "c",
-        "supermercado.h": "c"
+        "supermercado.h": "c",
+        "esquina.h": "c",
+        "list.h": "c"
     }
 }

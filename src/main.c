@@ -56,7 +56,7 @@ int main(int argc, char **argv)
 
     }
 
-    /* Memória partilhada */    
+    /* Memória partilhada */
     /*
     int size = 64;
     int protection = PROT_READ | PROT_WRITE;
@@ -65,20 +65,31 @@ int main(int argc, char **argv)
     //int visibility = MAP_ANONYMOUS | MAP_SHARED;
 
     void *solucao = mmap(NULL, size, protection, visibility, 0, 0);
-
+    
     // */
 
     int pids[NUMBER_OF_PROCESSES];
 
+    /* Semáforos */
 
-    /* Dados do problema */
-    pt_FileTestData data = readFileData(FILE_NAME);
+    /*
+    sem_unlink("shared_memory");
+    sem_unlink("job_done");
 
-    pt_Esquina **mapa = mapa_init(data->TotalAvenidas, data->TotalRuas);
+    sem_t *shared_memory = sem_open("shared_memory", O_CREAT, 0644, 1);
+    sem_t *job_done = sem_open("job_done", O_CREAT, 0644, 0);
+    */
 
-    print_mapa(mapa, data->TotalAvenidas, data->TotalRuas);
+    // Dados do problema
+    pt_FileTestData data = NULL;
 
-    findSafeCitizen(0, mapa, data);
+    readFileData(data, FILE_NAME);
+
+    puts("aqui");
+    //print_mapa(mapa, data->TotalAvenidas, data->TotalRuas);
+
+    //findSafeCitizen(0, mapa, data);
+    puts("ali");
 
     /* FSCS */
     /*
@@ -116,8 +127,7 @@ int main(int argc, char **argv)
     }
     
     // */
-    freeMapa(mapa, data->TotalAvenidas, data->TotalRuas);
-    puts("Sucesso.");
+    puts("\nSucesso.");
 
     return EXIT_SUCCESS;
 }

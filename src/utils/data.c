@@ -6,18 +6,20 @@
 #include "../Entities/cidadao.h"
 #include "../Entities/supermercado.h"
 
-void freeData(pt_FileTestData data);
+typedef struct fileTestData {
+    int TotalAvenidas;
+    int TotalRuas;
+
+    int NumeroCidadaos;
+    int NumeroSupermercados;
+
+    pt_Cidadao Cidadaos[100];
+    pt_supermercado Supermercados[100];
+} FileTestData;
+
 void readEntityFromFile(pt_FileTestData data, FILE *file, char entity);
 
-pt_FileTestData readFileData(const char* fileName) {
-
-    pt_FileTestData data = malloc(sizeof(FileTestData));
-
-    if (!data) {
-        puts("ERRO: Falha ao alocar memória para os dados a receber.");
-        exit(EXIT_FAILURE);
-    }
-
+void readFileData(pt_FileTestData data, const char* fileName) {
 
     char fileDirectory[PATH_FILENAME_SIZE] = "../file_tests/";
     strcat(fileDirectory, fileName);
@@ -26,45 +28,20 @@ pt_FileTestData readFileData(const char* fileName) {
     if (!file) {
         printf("ERRO: Ficheiro \"%s\" não existe.\n", fileName);
 
-        free(data);
         exit(EXIT_FAILURE);
     }
 
     fscanf(file, "%d %d", &data->TotalAvenidas, &data->TotalRuas);
     fscanf(file, "%d %d", &data->NumeroSupermercados, &data->NumeroCidadaos);
 
-
-    
-    data->Supermercados = malloc(data->NumeroSupermercados * sizeof(pt_supermercado));
-    data->Cidadaos = malloc(data->NumeroCidadaos * sizeof(pt_Cidadao));
-
-    if (!data->Supermercados || !data->Cidadaos) {
-        if (!data->Supermercados)
-            puts("ERRO: Falha ao alocar memória para listas de supermercados.");
-        if (!data->Cidadaos)
-            puts("ERRO: Falha ao alocar memória para listas de cidadãos.");
-
-        fclose(file);
-        freeData(data);
-        exit(EXIT_FAILURE);
-    }
-
     readEntityFromFile(data, file, 's');
     readEntityFromFile(data, file, 'c');
 
     fclose(file);
 
-    return data;
 }
 
-void freeData(pt_FileTestData data) {
-    free(data->Supermercados);
-    free(data->Cidadaos);
-    free(data);
-
-}
-
-void readEntityFromFile(pt_FileTestData data, FILE *file, char entity) {
+void readEntityFromFile(pt_FileTestData data, FILE *file, const char entity) {
 
     int count = 0;
 
@@ -88,12 +65,12 @@ void readEntityFromFile(pt_FileTestData data, FILE *file, char entity) {
         switch (entity) {
             case 'c': case 'C':
                 fscanf(file, "%d %d", &avenida, &rua);
-                data->Cidadaos[i] = cidadao_init(i + 1, avenida, rua);
+                cidadao_init(data->Cidadaos[i], i + 1, avenida, rua);
                 break;
             
             case 's': case 'S':
                 fscanf(file, "%d %d", &avenida, &rua);
-                data->Supermercados[i] = supermercado_init(i + 1, avenida, rua);
+                supermercado_init(data->Supermercados[i], i + 1, avenida, rua);
                 break;
 
         }
@@ -101,17 +78,27 @@ void readEntityFromFile(pt_FileTestData data, FILE *file, char entity) {
     
 }
 
-void freeEveryEntity(pt_FileTestData data) {
-    for (size_t i = 0; i < data->NumeroSupermercados; i++)
-    {
-        free(data->Supermercados[i]);
-    }
 
-    for (size_t i = 0; i < data->NumeroCidadaos; i++)
-    {
-        free(data->Cidadaos[i]);
-    }
+int data_getTotalAvenidas(pt_FileTestData data) {
+    return data->TotalAvenidas;
+}
 
-    freeData(data);
-    
+int data_getTotalRuas(pt_FileTestData data) {
+    return data->TotalRuas;
+}
+
+int data_getNumeroCidadaos(pt_FileTestData data) {
+    return data->NumeroCidadaos;
+}
+
+int data_getNumeroSupermercados(pt_FileTestData data) {
+    return data->NumeroSupermercados;
+}
+
+pt_Cidadao data_getCidadao(pt_FileTestData data, int i) {
+    return data->Cidadaos[i];
+}
+
+pt_supermercado data_getSupermercado(pt_FileTestData data, int i) {
+    return data->Supermercados[i];
 }

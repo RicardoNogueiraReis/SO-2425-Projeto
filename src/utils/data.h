@@ -8,19 +8,16 @@
 typedef struct fileTestData FileTestData;
 typedef FileTestData *pt_FileTestData;
 
-typedef struct fileTestData {
-    int TotalAvenidas;
-    int TotalRuas;
+void readFileData(pt_FileTestData data, const char* fileName);
 
-    int NumeroCidadaos;
-    int NumeroSupermercados;
+int data_getTotalAvenidas(pt_FileTestData data);
 
-    pt_Cidadao *Cidadaos;
-    pt_supermercado *Supermercados;
-} FileTestData;
+int data_getTotalRuas(pt_FileTestData data);
 
-pt_FileTestData readFileData(const char* fileName);
+int data_getNumeroCidadaos(pt_FileTestData data);
 
-void freeData(pt_FileTestData data);
+int data_getNumeroSupermercados(pt_FileTestData data);
 
-void freeEveryEntity(pt_FileTestData data);
+pt_Cidadao data_getCidadao(pt_FileTestData data, int i);
+
+pt_supermercado data_getSupermercado(pt_FileTestData data, int i);
