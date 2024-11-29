@@ -1,0 +1,63 @@
+#include <stdlib.h>
+#include "mapaEsquina.h"
+#include "esquina.h"
+#include "Stack.h"
+
+#define MAPA_SUCCESS 0
+#define MAPA_IS_NULL 1
+#define MAPA_INVALID_POSITION 2
+#define MAPA_IS_EMPTY 3
+
+#define MAX_CITY_LENGTH 30
+#define NUMBER_OF_SOLUCTIONS 30
+
+struct mapaEsquina
+{
+    int maxAvenidas;
+    int maxRuas;
+    pt_Esquina mapa[MAX_CITY_LENGTH][MAX_CITY_LENGTH];
+    PtStack solucoes[NUMBER_OF_SOLUCTIONS];
+};
+
+
+int mapaCreate(PtMapaEsquina mapa, int avenidas, int ruas) {
+
+    mapa->maxAvenidas = avenidas;
+    mapa->maxRuas = ruas;
+    
+    for (int i = 1; i <= avenidas; i++) {
+        for (int j = 1; j <= ruas; j++) {
+            esquina_init(mapa->mapa[i][j], i, j);
+        }
+    }
+
+    for(int i = 0; i < NUMBER_OF_SOLUCTIONS; i++) {
+        stackCreate(mapa->solucoes[i]);
+    }
+
+    return MAPA_SUCCESS;
+}
+
+int mapaGetEsquina(PtMapaEsquina mapa, int avenida, int rua, pt_Esquina* esquina) {
+    if (mapa == NULL)
+        return MAPA_IS_NULL;
+
+    if (avenida < 1 || avenida > mapa->maxAvenidas || rua < 1 || rua > mapa->maxRuas)
+        return MAPA_INVALID_POSITION;    
+
+    *esquina = mapa->mapa[avenida][rua];
+
+    return MAPA_SUCCESS;
+}
+
+ 
+
+
+
+
+
+
+
+
+
+

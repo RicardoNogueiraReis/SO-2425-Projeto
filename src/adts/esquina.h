@@ -11,4 +11,6 @@ void esquina_getRua(pt_Esquina esquina, int *rua);
 
 void esquina_Visit(pt_Esquina esquina);
 
+bool esquina_WasVisited(pt_Esquina esquina);
+
 void print_esquina(pt_Esquina esquina);

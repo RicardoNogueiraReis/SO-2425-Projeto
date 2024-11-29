@@ -10,9 +10,6 @@ typedef struct stack
 } Stack;
 
 int stackCreate(PtStack stack) {
-    if (stack == NULL)
-        return STACK_IS_NULL;
-    
     stack->size=0;
     return STACK_SUCCESS;
 }

@@ -42,6 +42,13 @@ void esquina_Visit(pt_Esquina esquina) {
     esquina->FoiVisitado = true;
 }
 
+bool esquina_WasVisited(pt_Esquina esquina) {
+    if (esquina == NULL)
+        return false;
+
+    return esquina->FoiVisitado;
+}
+
 void print_esquina(pt_Esquina esquina) {
     if(esquina == NULL) {
         printf("NULL ");

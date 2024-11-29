@@ -11,9 +11,6 @@ typedef struct list
 }List;
 
 int listCreate(PtList list) {
-    if (list == NULL)
-        return LIST_IS_NULL;
-
     list->size = 0;
 }
 
