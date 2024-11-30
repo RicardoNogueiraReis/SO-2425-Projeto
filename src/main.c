@@ -6,6 +6,7 @@
 #include <fcntl.h>
 #include <signal.h>
 #include <sys/mman.h>
+#include <time.h>
 
 #include "adts/esquina.h"
 #include "adts/esquina.h"
@@ -29,6 +30,7 @@ int main(int argc, char **argv)
     const int NUMBER_OF_PROCESSES = atoi(argv[2]);
     const int EXECUTION_TIME = atoi(argv[3]);
     */
+    time_t parentTime = time(NULL); //Timestamp
 
     argc = 4;
     const char *FILE_NAME = "instances_2.txt";

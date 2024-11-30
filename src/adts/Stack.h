@@ -6,13 +6,19 @@
 #define STACK_IS_EMPTY 2
 #define STACK_IS_FULL 3
 
+#define MAX_STACK_SIZE 1000
+
 #pragma once
 
-typedef struct stack Stack;
+typedef struct stack
+{
+    int size;
+    StackElem elements[MAX_STACK_SIZE];
+} Stack;
 
 typedef Stack* PtStack;
 
-typedef pt_Esquina StackElem;
+typedef Esquina StackElem;
 
 /**
  * @brief Creates a new empty stack with up to 1000 elements from type StackElem.

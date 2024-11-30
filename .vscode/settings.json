@@ -10,6 +10,9 @@
         "supermercado.h": "c",
         "esquina.h": "c",
         "list.h": "c",
-        "fscs.h": "c"
+        "fscs.h": "c",
+        "mapaesquina.h": "c",
+        "random": "c",
+        "limits": "c"
     }
 }

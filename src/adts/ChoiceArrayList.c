@@ -2,16 +2,9 @@
 #include <stdio.h>
 #include "List.h"
 
-#define MAX_LIST_SIZE 4
-
-typedef struct list
-{
-    int size;
-    ListElem elements[MAX_LIST_SIZE];
-}List;
-
 int listCreate(PtList list) {
     list->size = 0;
+    return LIST_SUCCESS;
 }
 
 int listAdd(PtList list, int index, ListElem elem) {

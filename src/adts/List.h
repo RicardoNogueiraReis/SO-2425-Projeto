@@ -4,13 +4,19 @@
 #define LIST_INVALID_POSITION 1
 #define LIST_IS_NULL 2
 
+#define MAX_LIST_SIZE 4
+
 #pragma once
 
-typedef struct list List;
+typedef int ListElem;
+
+typedef struct list
+{
+    int size;
+    ListElem elements[MAX_LIST_SIZE];
+}List;
 
 typedef List *PtList;
-
-typedef int ListElem;
 
 /**
  * @brief Creates a new empty list with up to 4 elements from type ListElem.

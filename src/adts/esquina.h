@@ -1,6 +1,12 @@
 #pragma once
 
-typedef struct esquina Esquina;
+typedef struct esquina {
+    int Avenida;        // A (1 a M) NORTE-SUL.
+    int Rua;            // B (1 a N) ESTE-OESTE.
+    bool FoiVisitado;   // Por defeito, true (0)
+
+} Esquina;
+
 typedef Esquina *pt_Esquina;
 
 void esquina_init(pt_Esquina esquina, const int avenida, const int rua);

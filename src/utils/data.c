@@ -6,17 +6,6 @@
 #include "../Entities/cidadao.h"
 #include "../Entities/supermercado.h"
 
-typedef struct fileTestData {
-    int TotalAvenidas;
-    int TotalRuas;
-
-    int NumeroCidadaos;
-    int NumeroSupermercados;
-
-    pt_Cidadao Cidadaos[100];
-    pt_supermercado Supermercados[100];
-} FileTestData;
-
 void readEntityFromFile(pt_FileTestData data, FILE *file, char entity);
 
 void readFileData(pt_FileTestData data, const char* fileName) {
@@ -65,12 +54,12 @@ void readEntityFromFile(pt_FileTestData data, FILE *file, const char entity) {
         switch (entity) {
             case 'c': case 'C':
                 fscanf(file, "%d %d", &avenida, &rua);
-                cidadao_init(data->Cidadaos[i], i + 1, avenida, rua);
+                cidadao_init(&data->Cidadaos[i], i + 1, avenida, rua);
                 break;
             
             case 's': case 'S':
                 fscanf(file, "%d %d", &avenida, &rua);
-                supermercado_init(data->Supermercados[i], i + 1, avenida, rua);
+                supermercado_init(&data->Supermercados[i], i + 1, avenida, rua);
                 break;
 
         }
@@ -96,9 +85,9 @@ int data_getNumeroSupermercados(pt_FileTestData data) {
 }
 
 pt_Cidadao data_getCidadao(pt_FileTestData data, int i) {
-    return data->Cidadaos[i];
+    return &data->Cidadaos[i];
 }
 
 pt_supermercado data_getSupermercado(pt_FileTestData data, int i) {
-    return data->Supermercados[i];
+    return &data->Supermercados[i];
 }

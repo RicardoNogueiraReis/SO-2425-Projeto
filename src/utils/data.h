@@ -5,7 +5,17 @@
 
 #define PATH_FILENAME_SIZE 31
 
-typedef struct fileTestData FileTestData;
+typedef struct fileTestData {
+    int TotalAvenidas;
+    int TotalRuas;
+
+    int NumeroCidadaos;
+    int NumeroSupermercados;
+
+    Cidadao Cidadaos[100];
+    Supermercado Supermercados[100];
+} FileTestData;
+
 typedef FileTestData *pt_FileTestData;
 
 void readFileData(pt_FileTestData data, const char* fileName);

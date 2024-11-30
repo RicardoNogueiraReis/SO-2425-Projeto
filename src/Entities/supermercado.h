@@ -1,6 +1,13 @@
 #pragma once
 
-typedef struct supermercado Supermercado;
+typedef struct supermercado {
+    int id;
+    int avenida;
+    int rua;
+    // Lista de vertex
+    
+} Supermercado;
+
 typedef Supermercado *pt_supermercado;
 
 void supermercado_init(pt_supermercado novoSupermercado, const int id, const int avenida, const int rua);

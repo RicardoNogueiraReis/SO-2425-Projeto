@@ -1,14 +1,6 @@
 #include <stdlib.h>
 #include "Stack.h"
 
-#define MAX_STACK_SIZE 1000
-
-typedef struct stack
-{
-    int size;
-    StackElem elements[MAX_STACK_SIZE];
-} Stack;
-
 int stackCreate(PtStack stack) {
     stack->size=0;
     return STACK_SUCCESS;
