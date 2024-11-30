@@ -21,7 +21,7 @@ int calculateMaxSolutions(const int numCidadaos, const int numSupermercados) {
 }
 
 int findSafeCitizen(int citizenID, PtMapaEsquina mapa, pt_FileTestData data) {
-    srand(time(NULL));
+    srand(time(NULL)); //Para colocar no início do programa
     
     pt_Cidadao citizen = data_getCidadao(data, citizenID);
 
@@ -32,6 +32,8 @@ int findSafeCitizen(int citizenID, PtMapaEsquina mapa, pt_FileTestData data) {
     stackCreate(&pathsStack);
 
     bool isSupermarket = false;
+
+    mapaVisitEsquina(&mapa, citizen->avenida, citizen->rua);
 
     do
     {
@@ -61,7 +63,6 @@ int findSafeCitizen(int citizenID, PtMapaEsquina mapa, pt_FileTestData data) {
         listGet(&choiceList, (rand() % max), &direction);
 
         //Implementar Semáforo Aqui
-        mapaVisitEsquina(&mapa, citizen->avenida, citizen->rua);
         switch (direction)
         {
             case NORTE:
@@ -77,6 +78,7 @@ int findSafeCitizen(int citizenID, PtMapaEsquina mapa, pt_FileTestData data) {
                 citizen->rua++;
             break;
         }
+        mapaVisitEsquina(&mapa, citizen->avenida, citizen->rua);
         //Verificar se a esquina atual é supermercado (VER MAPA_ESQUINA.H)
     }
     while (isSupermarket);
