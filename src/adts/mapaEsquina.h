@@ -5,12 +5,17 @@
 
 #pragma once
 
+typedef struct corner
+{
+    bool isVisited;
+    bool isSuperMarket;
+} Corner;
+
 typedef struct mapaEsquina
 {
     int maxAvenidas;
     int maxRuas;
-    bool mapa[MAX_CITY_LENGTH][MAX_CITY_LENGTH]; //Estrutura de dois bool isVisited e isSuperMarket?
-    Stack solucoes[NUMBER_OF_SOLUCTIONS];
+    Corner mapa[MAX_CITY_LENGTH][MAX_CITY_LENGTH];
 } MapaEsquina;
 
 typedef MapaEsquina* PtMapaEsquina;
@@ -43,3 +48,14 @@ int mapaIsEsquinaVisited(PtMapaEsquina mapa, int avenida, int rua, bool *esquina
  * @return int - Success (0) or Error (>0)
  */
 int mapaVisitEsquina(PtMapaEsquina mapa, int avenida, int rua);
+
+/**
+ * @brief Gets the supermarket state of a corner from the map.
+ * 
+ * @param mapa The Map
+ * @param avenida The Avenue
+ * @param rua The Street
+ * @param esquinaStatus The Status of Corner
+ * @return int - Success (0) or Error (>0)
+ */
+int mapaIsEsquinaSuperMarket(PtMapaEsquina mapa, int avenida, int rua, bool *esquinaStatus);

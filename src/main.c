@@ -13,8 +13,10 @@
 #include "algoritmos/fscs.h"
 #include "utils/data.h"
 #include "utils/parameters.h"
+#include "Stack.h"
 
 #define ONE_MILISECOND 1000
+#define MAXIMUM_SOLUCTIONS 30
 
 /**
  * @brief Main function
@@ -46,7 +48,7 @@ int main(int argc, char **argv)
         printf("ERRO: Ficheiro \"%s\" não existe.\n", FILE_NAME);
         return EXIT_FAILURE;
 
-    }
+    }/*
     else if (checkNumberOfProcesses(NUMBER_OF_PROCESSES)) {
         puts("ERRO: O número de processos tem de ser, pelo menos, 2.");
         return EXIT_FAILURE;
@@ -56,7 +58,7 @@ int main(int argc, char **argv)
         puts("ERRO: O número de milisegundos tem de ser, pelo menos, 1000.");
         return EXIT_FAILURE;
 
-    }
+    }*/
 
     /* Memória partilhada */
     /*
@@ -73,62 +75,35 @@ int main(int argc, char **argv)
     int pids[NUMBER_OF_PROCESSES];
 
     /* Semáforos */
-
-    /*
     sem_unlink("shared_memory");
-    sem_unlink("job_done");
 
     sem_t *shared_memory = sem_open("shared_memory", O_CREAT, 0644, 1);
-    sem_t *job_done = sem_open("job_done", O_CREAT, 0644, 0);
-    */
-
+    
+    
     // Dados do problema
-    pt_FileTestData data = NULL;
+    FileTestData data;
 
-    readFileData(data, FILE_NAME);
+    readFileData(&data, FILE_NAME);
 
-    puts("aqui");
-    //print_mapa(mapa, data->TotalAvenidas, data->TotalRuas);
-
-    //findSafeCitizen(0, mapa, data);
-    puts("ali");
 
     /* FSCS */
-    /*
-    int maxSolutions = calculateMaxSolutions(data->NumeroCidadaos, data->NumeroSupermercados);
-
-    void* solutionList = NULL; // ArrayList, talvez?
-
-    void* listaNosVisitados = NULL;    // Lista de nós visitados
-
-    int numSolucoes = 0;               // Número de soluções
+    int maxSolutions = calculateMaxSolutions(data.NumeroCidadaos, data.NumeroSupermercados);
     
-
+    Stack solutionList[MAXIMUM_SOLUCTIONS];
+    for(int i = 0; i < maxSolutions; i++) {
+        stackCreate(&solutionList[i]);
+    }
 
     for (int i = 0; i < NUMBER_OF_PROCESSES; i++) {
 
         pids[i] = fork();
 
         if (pids[i] == 0) {
-
-            while(1){
-                printf("Worker process #%d!\n", i);
-
-            }
-
+            // Child process
+            srand(time(NULL) ^ (getpid()<<16));        
         }
     }
 
-    usleep(EXECUTION_TIME * ONE_MILISECOND);
-
-
-    // Kill worker processes
-    for (int i = 0; i < NUMBER_OF_PROCESSES; i++) {
-        kill(pids[i], SIGKILL);
-
-    }
-    
-    // */
     puts("\nSucesso.");
 
     return EXIT_SUCCESS;
