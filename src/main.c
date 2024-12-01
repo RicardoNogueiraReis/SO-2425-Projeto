@@ -6,7 +6,6 @@
 #include <fcntl.h>
 #include <signal.h>
 #include <sys/mman.h>
-#include <time.h>
 
 #include "adts/esquina.h"
 #include "adts/esquina.h"
@@ -16,6 +15,8 @@
 #include "adts/Stack.h"
 #include "PathList.h"
 #include "algoritmos/fscs.h"
+#include "utils/timeMilis.h"
+#include "adts/ChoiceList.h"
 
 #define ONE_MILISECOND 1000
 #define MAXIMUM_SOLUCTIONS 30
@@ -29,17 +30,18 @@
  */
 int main(int argc, char **argv)
 {
-    /*
+    
     const char *FILE_NAME = argv[1];
     const int NUMBER_OF_PROCESSES = atoi(argv[2]);
     const int EXECUTION_TIME = atoi(argv[3]);
-    */
-    time_t parentTime = time(NULL); //Timestamp
+    
+    TimeMillis parentTime; //Timestamp
+    createTime(&parentTime);
 
-    argc = 4;
-    const char *FILE_NAME = "instances_2.txt";
-    const int NUMBER_OF_PROCESSES = 3;
-    const int EXECUTION_TIME = 1000;
+    // argc = 4;
+    // const char *FILE_NAME = "instances_2.txt";
+    // const int NUMBER_OF_PROCESSES = 3;
+    // const int EXECUTION_TIME = 1000;
 
     if (checkNumberOfArguments(argc)) {
         puts("ERRO: Falta de argumentos.");
@@ -95,41 +97,53 @@ int main(int argc, char **argv)
         if (pids[i] == 0) {
             srand(time(NULL) ^ (getpid()<<16));
 
-            time_t processTime = time(NULL);
+            TimeMillis processTime, execTime;
 
-            int nSoluctions;
+            PathList pathList;
 
-            for (int i = 1; i < 10000 || difftime(processTime, parentTime) >= EXECUTION_TIME; i++)
+            int nSoluctions = 0;
+
+            for(int nIterations = 1; nSoluctions < maxSolutions || pathList.execTime >= EXECUTION_TIME; nIterations++)
             {
-                time_t execTime = time(NULL);
-
-                PathList pathList;
                 plistCreate(&pathList);
 
                 MapaEsquina mapa;
                 mapaCreate(&mapa, data.TotalAvenidas, data.TotalRuas);
 
-                //Implement FSCS
-                while (plistSize(&pathList, &nSoluctions) == 0 && nSoluctions < maxSolutions || difftime(processTime, parentTime) >= EXECUTION_TIME)
+                ChoiceList chooseCitizenList;
+                listCreate(&chooseCitizenList);
+                for (int i = 0; i < data.NumeroCidadaos; i++)
+                    listAdd(&chooseCitizenList, i, data.Cidadaos[i].id);
+                
+                while(!listIsEmpty(&chooseCitizenList))
                 {
-                    int citizenID = (rand() % data.NumeroCidadaos + 1);
-                    if (pathList.paths[citizenID].size == 0)
-                        findSafeCitizen(citizenID, &mapa, &data, &pathList);
-                }   
+                    int citizenID, remainingCitizens;
+                    listSize(&chooseCitizenList, &remainingCitizens);
+                    listGet(&chooseCitizenList, (rand() % remainingCitizens), &citizenID);
+            
+                    findSafeCitizen(citizenID, &mapa, &data, &pathList);
 
-                int newSoluctionSize;
-                plistSize(&pathList, &newSoluctionSize);
+                    listRemove(&chooseCitizenList, citizenID, NULL);
+                }
+
+                createTime(&processTime);
+                createTimeFromTimeDiff(&execTime, &parentTime, &processTime);
+                getTimeInMilis(&execTime, &pathList.execTime);
+                
+                pathList.numIterations = nIterations;
+                plistSize(&pathList, &nSoluctions);
 
                 sem_wait(shared_memory);
 
                 int actualSoluctionSize;
                 plistSize(sharedPathList, &actualSoluctionSize);
 
-                if (actualSoluctionSize < newSoluctionSize)
-                    memcpy(sharedPathList, &newSoluctionSize, sizeof(PathList));
+                if (actualSoluctionSize < nSoluctions)
+                    memcpy(sharedPathList, &pathList, sizeof(PathList));
 
                 sem_post(shared_memory);
             }
+            
             exit(0);
         }
     }

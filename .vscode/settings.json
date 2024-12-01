@@ -17,6 +17,8 @@
         "array": "c",
         "string_view": "c",
         "initializer_list": "c",
-        "choicelist.h": "c"
+        "choicelist.h": "c",
+        "timemilis.h": "c",
+        "time.h": "c"
     }
 }

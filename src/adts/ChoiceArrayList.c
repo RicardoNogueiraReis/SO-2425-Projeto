@@ -31,7 +31,8 @@ int listRemove(PtChoiceList list, int index, ListElem *remElem) {
     if (index >= list->size || index < 0)
         return LIST_INVALID_POSITION;
     
-    *remElem = list->elements[index];
+    if(remElem != NULL)
+        *remElem = list->elements[index];
     for (int i = index; i < list->size-1; i++)
     {
         list->elements[i] = list->elements[i+1];

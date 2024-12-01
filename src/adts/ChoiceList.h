@@ -4,7 +4,7 @@
 #define LIST_INVALID_POSITION 1
 #define LIST_IS_NULL 2
 
-#define MAX_LIST_SIZE 4
+#define MAX_LIST_SIZE 30
 
 #pragma once
 
@@ -19,7 +19,7 @@ typedef struct list
 typedef ChoiceList *PtChoiceList;
 
 /**
- * @brief Creates a new empty list with up to 4 elements from type ListElem.
+ * @brief Creates a new empty list with up to MAX_LIST_SIZE elements from type ListElem.
  * 
  * @param list The List Pointer
  * @return int - Success (0) or Error (>0)

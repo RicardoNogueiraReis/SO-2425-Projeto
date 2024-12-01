@@ -1,5 +1,6 @@
 #include <time.h>
 #include "Stack.h"
+#include "../utils/timeMilis.h"
 
 #define MAX_PATH_SIZE 30
 
@@ -13,7 +14,7 @@ typedef Stack pListElem;
 
 typedef struct pathList
 {
-    time_t execTime;
+    Millis execTime;
     int numIterations;
     int size;
     pListElem paths[MAX_PATH_SIZE];
