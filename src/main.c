@@ -99,19 +99,22 @@ int main(int argc, char **argv)
 
             int nSoluctions;
 
-            PathList pathList;
-            plistCreate(&pathList);
-
             for (int i = 1; i < 10000 || difftime(processTime, parentTime) >= EXECUTION_TIME; i++)
             {
                 time_t execTime = time(NULL);
+
+                PathList pathList;
+                plistCreate(&pathList);
+
                 MapaEsquina mapa;
                 mapaCreate(&mapa, data.TotalAvenidas, data.TotalRuas);
+
                 //Implement FSCS
                 while (plistSize(&pathList, &nSoluctions) == 0 && nSoluctions < maxSolutions || difftime(processTime, parentTime) >= EXECUTION_TIME)
                 {
                     int citizenID = (rand() % data.NumeroCidadaos + 1);
-                    findSafeCitizen(citizenID, &mapa, &data, &pathList);
+                    if (pathList.paths[citizenID].size == 0)
+                        findSafeCitizen(citizenID, &mapa, &data, &pathList);
                 }   
 
                 int newSoluctionSize;
