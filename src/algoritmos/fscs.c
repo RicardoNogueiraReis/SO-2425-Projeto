@@ -2,13 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include <time.h>
 
 
 #include "fscs.h"
 #include "../utils/data.h"
 // #include "../adts/list/list.h"
-#include "../adts/List.h"
+#include "../adts/ChoiceList.h"
 #include "../adts/Stack.h"
 
 #define NORTE 0
@@ -20,11 +19,11 @@ int calculateMaxSolutions(const int numCidadaos, const int numSupermercados) {
     return (numCidadaos < numSupermercados) ? numCidadaos : numSupermercados;
 }
 
-int findSafeCitizen(int citizenID, PtMapaEsquina mapa, pt_FileTestData data) {
+int findSafeCitizen(int citizenID, PtMapaEsquina mapa, pt_FileTestData data, PtPathList pathList) {
     
     pt_Cidadao citizen = data_getCidadao(data, citizenID);
 
-    List choiceList;
+    ChoiceList choiceList;
     listCreate(&choiceList);
 
     Stack pathsStack;
@@ -61,7 +60,6 @@ int findSafeCitizen(int citizenID, PtMapaEsquina mapa, pt_FileTestData data) {
         ListElem direction;
         listGet(&choiceList, (rand() % max), &direction);
 
-        //Implementar Semáforo Aqui
         switch (direction)
         {
             case NORTE:
@@ -79,9 +77,9 @@ int findSafeCitizen(int citizenID, PtMapaEsquina mapa, pt_FileTestData data) {
         }
         mapaVisitEsquina(&mapa, citizen->avenida, citizen->rua);
 
-        //Verificar se a esquina atual é supermercado
         mapaIsEsquinaSuperMarket(mapa, citizen->avenida, citizen->rua, &isSupermarket);
-
     }
     while (!isSupermarket);
+    plistAdd(pathList, citizenID, pathsStack);
+    return 1;
 }

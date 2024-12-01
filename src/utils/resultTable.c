@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "../adts/Stack.h"
+#include "../adts/PathList.h"
 
 #define MAX_TESTS 10
 
@@ -10,7 +10,7 @@ struct resultTable
    int tempoExecucao;
    int numeroProcessos;
    int numeroCidadaos;
-   PtStack solucoes;
+   PathList solucoes;
    int duracao;
 };
 

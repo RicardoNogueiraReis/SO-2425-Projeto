@@ -2,6 +2,9 @@
 #include "Stack.h"
 
 int stackCreate(PtStack stack) {
+    if (stack == NULL)
+        return STACK_IS_NULL;
+    
     stack->size=0;
     return STACK_SUCCESS;
 }
@@ -71,10 +74,12 @@ void stackPrint(PtStack stack) {
         return;
     }
     
-    printf("Caminho Solução: %d", stack->elements[0]);
-    for (int i = 0; i < stack->size; i++)
+    printf("Caminho Solução: ");
+    print_esquina(&stack->elements[0]);
+    for (int i = 1; i < stack->size; i++)
     {
-        printf(" | %d", stack->elements[i]);
+        printf(" | ");
+        print_esquina(&stack->elements[i]);
     }
     printf("\n");
 }

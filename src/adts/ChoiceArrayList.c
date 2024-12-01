@@ -1,16 +1,19 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "List.h"
+#include "ChoiceList.h"
 
-int listCreate(PtList list) {
+int listCreate(PtChoiceList list) {
+    if (list == NULL)
+        return LIST_IS_NULL;
+        
     list->size = 0;
     return LIST_SUCCESS;
 }
 
-int listAdd(PtList list, int index, ListElem elem) {
+int listAdd(PtChoiceList list, int index, ListElem elem) {
     if (list == NULL)
         return LIST_IS_NULL;
-    if (index > list->size || index < 0)
+    if (index >= list->size || index < 0)
         return LIST_INVALID_POSITION;     
 
     for (int i = list->size; i > index; i--)
@@ -22,10 +25,10 @@ int listAdd(PtList list, int index, ListElem elem) {
     return LIST_SUCCESS;
 }
 
-int listRemove(PtList list, int index, ListElem *remElem) {
+int listRemove(PtChoiceList list, int index, ListElem *remElem) {
     if (list == NULL)
         return LIST_IS_NULL;
-    if (index > list->size || index < 0)
+    if (index >= list->size || index < 0)
         return LIST_INVALID_POSITION;
     
     *remElem = list->elements[index];
@@ -37,17 +40,17 @@ int listRemove(PtList list, int index, ListElem *remElem) {
     return LIST_SUCCESS;
 }
 
-int listGet(PtList list, int index, ListElem* elem) {
+int listGet(PtChoiceList list, int index, ListElem* elem) {
     if (list == NULL)
         return LIST_IS_NULL;
-    if (index > list->size || index < 0)
+    if (index >= list->size || index < 0)
         return LIST_INVALID_POSITION;
 
     *elem = list->elements[index];
     return LIST_SUCCESS;
 }
 
-int listSize(PtList list, int *size) {
+int listSize(PtChoiceList list, int *size) {
     if (list == NULL)
         return LIST_IS_NULL;
     
@@ -55,21 +58,21 @@ int listSize(PtList list, int *size) {
     return LIST_SUCCESS;
 }
 
-bool listIsEmpty(PtList list) {
+bool listIsEmpty(PtChoiceList list) {
     if (list == NULL)
         return true;
 
     return list->size == 0;
 }
 
-int listClear(PtList list) {
+int listClear(PtChoiceList list) {
     if (list == NULL)
         return LIST_IS_NULL;
 
     list->size = 0;
 }
 
-void listPrint(PtList list) {
+void listPrint(PtChoiceList list) {
     if (list == NULL)
         return;
     

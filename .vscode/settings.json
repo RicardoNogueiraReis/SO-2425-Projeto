@@ -13,6 +13,10 @@
         "fscs.h": "c",
         "mapaesquina.h": "c",
         "random": "c",
-        "limits": "c"
+        "limits": "c",
+        "array": "c",
+        "string_view": "c",
+        "initializer_list": "c",
+        "choicelist.h": "c"
     }
 }

@@ -43,10 +43,8 @@ bool esquina_WasVisited(pt_Esquina esquina) {
 }
 
 void print_esquina(pt_Esquina esquina) {
-    if(esquina == NULL) {
-        printf("NULL ");
+    if(esquina == NULL)
         return;
-    }
 
-    printf("[%d][%d] ", esquina->Avenida, esquina->Rua);
+    printf("[%d][%d]", esquina->Avenida, esquina->Rua);
 }

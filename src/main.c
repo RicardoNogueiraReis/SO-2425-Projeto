@@ -13,7 +13,9 @@
 #include "algoritmos/fscs.h"
 #include "utils/data.h"
 #include "utils/parameters.h"
-#include "Stack.h"
+#include "adts/Stack.h"
+#include "PathList.h"
+#include "algoritmos/fscs.h"
 
 #define ONE_MILISECOND 1000
 #define MAXIMUM_SOLUCTIONS 30
@@ -48,29 +50,23 @@ int main(int argc, char **argv)
         printf("ERRO: Ficheiro \"%s\" não existe.\n", FILE_NAME);
         return EXIT_FAILURE;
 
-    }/*
-    else if (checkNumberOfProcesses(NUMBER_OF_PROCESSES)) {
-        puts("ERRO: O número de processos tem de ser, pelo menos, 2.");
-        return EXIT_FAILURE;
-
     }
-    else if (EXECUTION_TIME < MINIMUM_MILISECONDS) {
-        puts("ERRO: O número de milisegundos tem de ser, pelo menos, 1000.");
-        return EXIT_FAILURE;
-
-    }*/
 
     /* Memória partilhada */
-    /*
-    int size = 64;
+
+    int size = sizeof(PathList);
     int protection = PROT_READ | PROT_WRITE;
 
-    int visibility = 1111 | MAP_SHARED;
-    //int visibility = MAP_ANONYMOUS | MAP_SHARED;
+    int visibility = MAP_ANONYMOUS | MAP_SHARED;
 
-    void *solucao = mmap(NULL, size, protection, visibility, 0, 0);
-    
-    // */
+    void *shmem = mmap(NULL, size, protection, visibility, 0, 0);
+
+    const PathList finalPathList;
+    plistCreate(&finalPathList);
+
+    memcpy(shmem, &finalPathList, sizeof(PathList));
+
+    PtPathList sharedPathList = (PtPathList) shmem;
 
     int pids[NUMBER_OF_PROCESSES];
 
@@ -85,8 +81,6 @@ int main(int argc, char **argv)
 
     readFileData(&data, FILE_NAME);
 
-
-    /* FSCS */
     int maxSolutions = calculateMaxSolutions(data.NumeroCidadaos, data.NumeroSupermercados);
     
     Stack solutionList[MAXIMUM_SOLUCTIONS];
@@ -99,8 +93,41 @@ int main(int argc, char **argv)
         pids[i] = fork();
 
         if (pids[i] == 0) {
-            // Child process
-            srand(time(NULL) ^ (getpid()<<16));        
+            srand(time(NULL) ^ (getpid()<<16));
+
+            time_t processTime = time(NULL);
+
+            int nSoluctions;
+
+            PathList pathList;
+            plistCreate(&pathList);
+
+            for (int i = 1; i < 10000 || difftime(processTime, parentTime) >= EXECUTION_TIME; i++)
+            {
+                time_t execTime = time(NULL);
+                MapaEsquina mapa;
+                mapaCreate(&mapa, data.TotalAvenidas, data.TotalRuas);
+                //Implement FSCS
+                while (plistSize(&pathList, &nSoluctions) == 0 && nSoluctions < maxSolutions || difftime(processTime, parentTime) >= EXECUTION_TIME)
+                {
+                    int citizenID = (rand() % data.NumeroCidadaos + 1);
+                    findSafeCitizen(citizenID, &mapa, &data, &pathList);
+                }   
+
+                int newSoluctionSize;
+                plistSize(&pathList, &newSoluctionSize);
+
+                sem_wait(shared_memory);
+
+                int actualSoluctionSize;
+                plistSize(sharedPathList, &actualSoluctionSize);
+
+                if (actualSoluctionSize < newSoluctionSize)
+                    memcpy(sharedPathList, &newSoluctionSize, sizeof(PathList));
+
+                sem_post(shared_memory);
+            }
+            exit(0);
         }
     }
 

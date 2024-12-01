@@ -14,9 +14,9 @@ typedef struct list
 {
     int size;
     ListElem elements[MAX_LIST_SIZE];
-}List;
+}ChoiceList;
 
-typedef List *PtList;
+typedef ChoiceList *PtChoiceList;
 
 /**
  * @brief Creates a new empty list with up to 4 elements from type ListElem.
@@ -24,7 +24,7 @@ typedef List *PtList;
  * @param list The List Pointer
  * @return int - Success (0) or Error (>0)
  */
-int listCreate(PtList list);
+int listCreate(PtChoiceList list);
 
 /**
  * @brief Adds an element to a list.
@@ -34,7 +34,7 @@ int listCreate(PtList list);
  * @param elem Element to be Added
  * @return int - Success (0) or Error (>0)
  */
-int listAdd(PtList list, int index, ListElem elem);
+int listAdd(PtChoiceList list, int index, ListElem elem);
 
 /**
  * @brief Removes an element from a list.
@@ -44,7 +44,7 @@ int listAdd(PtList list, int index, ListElem elem);
  * @param remElem The Removed Element
  * @return int - Success (0) or Error (>0)
  */
-int listRemove(PtList list, int index, ListElem *remElem);
+int listRemove(PtChoiceList list, int index, ListElem *remElem);
 
 /**
  * @brief Gets an element from a list.
@@ -54,7 +54,7 @@ int listRemove(PtList list, int index, ListElem *remElem);
  * @param elem The Element
  * @return int - Success (0) or Error (>0)
  */
-int listGet(PtList list, int index, ListElem* elem);
+int listGet(PtChoiceList list, int index, ListElem* elem);
 
 /**
  * @brief Gets the actual size of a list
@@ -63,7 +63,7 @@ int listGet(PtList list, int index, ListElem* elem);
  * @param size The Size of The List
  * @return int - Success (0) or Error (>0)
  */
-int listSize(PtList list, int *size);
+int listSize(PtChoiceList list, int *size);
 
 /**
  * @brief Verifies if a list is empty or not.
@@ -73,7 +73,7 @@ int listSize(PtList list, int *size);
  * |
  * @return false - if the list is not empty
  */
-bool listIsEmpty(PtList list);
+bool listIsEmpty(PtChoiceList list);
 
 /**
  * @brief Removes all elements from a list.
@@ -81,11 +81,11 @@ bool listIsEmpty(PtList list);
  * @param list The List
  * @return int - Success (0) or Error (>0)
  */
-int listClear(PtList list);
+int listClear(PtChoiceList list);
 
 /**
  * @brief Prints the elements of a list.
  * 
  * @param list The List
  */
-void listPrint(PtList list);
+void listPrint(PtChoiceList list);
