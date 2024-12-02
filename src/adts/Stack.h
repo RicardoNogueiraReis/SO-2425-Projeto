@@ -10,6 +10,8 @@
 
 #pragma once
 
+typedef Esquina StackElem;
+
 typedef struct stack
 {
     int size;
@@ -17,8 +19,6 @@ typedef struct stack
 } Stack;
 
 typedef Stack* PtStack;
-
-typedef Esquina StackElem;
 
 /**
  * @brief Creates a new empty stack with up to 1000 elements from type StackElem.

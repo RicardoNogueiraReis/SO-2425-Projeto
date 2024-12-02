@@ -1,0 +1,287 @@
+Número do Teste: 1
+Nome do Teste: instances_8.txt
+Tempo Total de Execução: 1002 ms
+Número de Processos Utilizados: 2
+Número de Cidadãos "Safos": 8
+Lista de Soluções: 
+
+Cidadão 1 -> Caminho Solução: [4][7] | [4][6]
+
+Cidadão 2 -> Caminho Solução: [8][1] | [7][1] | [7][2] | [6][2] | [5][2] | [4][2] | [3][2] | [3][3] | [2][3] | [2][4]
+
+Cidadão 3 -> Caminho Solução: [7][7] | [7][8] | [6][8] | [6][7] | [6][8] | [5][8] | [4][8] | [3][8] | [2][8] | [1][8] | [1][7] | [2][7] | [2][6]
+
+Cidadão 6 -> Caminho Solução: [6][6] | [5][6]
+
+Cidadão 7 -> Caminho Solução: [2][1] | [2][2] | [2][3] | [1][3]
+
+Cidadão 8 -> Caminho Solução: [5][3] | [5][4]
+
+Cidadão 9 -> Caminho Solução: [6][2] | [6][3]
+
+Cidadão 10 -> Caminho Solução: [7][3] | [6][3]
+
+Número de Iterações: 3912
+Tempo até atingir a Solução: 51 ms
+
+____________________________________________________________________
+Número do Teste: 2
+Nome do Teste: instances_8.txt
+Tempo Total de Execução: 1000 ms
+Número de Processos Utilizados: 2
+Número de Cidadãos "Safos": 8
+Lista de Soluções: 
+
+Cidadão 1 -> Caminho Solução: [4][7] | [4][6]
+
+Cidadão 2 -> Caminho Solução: [8][1] | [8][2] | [8][3] | [8][4] | [7][4] | [6][4] | [6][5] | [5][5]
+
+Cidadão 3 -> Caminho Solução: [7][7] | [7][6] | [7][5] | [7][6] | [7][7] | [7][8] | [6][8] | [6][7] | [5][7] | [5][8] | [4][8] | [3][8] | [3][7] | [2][7] | [2][6]
+
+Cidadão 5 -> Caminho Solução: [1][1] | [2][1] | [2][2] | [2][3] | [2][4]
+
+Cidadão 6 -> Caminho Solução: [6][6] | [5][6]
+
+Cidadão 7 -> Caminho Solução: [2][1] | [2][2] | [3][2] | [4][2] | [4][3] | [4][4] | [4][5] | [3][5] | [2][5] | [2][6]
+
+Cidadão 8 -> Caminho Solução: [5][3] | [5][4]
+
+Cidadão 10 -> Caminho Solução: [7][3] | [7][2] | [7][3] | [6][3]
+
+Número de Iterações: 4557
+Tempo até atingir a Solução: 57 ms
+
+____________________________________________________________________
+Número do Teste: 3
+Nome do Teste: instances_8.txt
+Tempo Total de Execução: 1001 ms
+Número de Processos Utilizados: 2
+Número de Cidadãos "Safos": 9
+Lista de Soluções: 
+
+Cidadão 1 -> Caminho Solução: [4][7] | [4][6]
+
+Cidadão 2 -> Caminho Solução: [8][1] | [7][1] | [6][1] | [5][1] | [4][1] | [3][1] | [3][2] | [3][3] | [3][4] | [2][4]
+
+Cidadão 3 -> Caminho Solução: [7][7] | [6][7] | [6][8] | [5][8] | [4][8] | [4][7] | [4][8] | [3][8] | [3][7] | [2][7] | [2][8] | [1][8] | [1][7] | [1][6] | [1][5] | [2][5] | [3][5] | [3][6] | [2][6]
+
+Cidadão 4 -> Caminho Solução: [8][4] | [8][3] | [8][2] | [8][3] | [7][3] | [7][2] | [6][2] | [6][3]
+
+Cidadão 6 -> Caminho Solução: [6][6] | [5][6]
+
+Cidadão 7 -> Caminho Solução: [2][1] | [2][2] | [2][3] | [1][3]
+
+Cidadão 8 -> Caminho Solução: [5][3] | [5][4]
+
+Cidadão 9 -> Caminho Solução: [6][2] | [6][3]
+
+Cidadão 10 -> Caminho Solução: [7][3] | [7][4] | [6][4] | [6][5] | [5][5]
+
+Número de Iterações: 38956
+Tempo até atingir a Solução: 357 ms
+
+____________________________________________________________________
+Número do Teste: 4
+Nome do Teste: instances_8.txt
+Tempo Total de Execução: 1000 ms
+Número de Processos Utilizados: 2
+Número de Cidadãos "Safos": 9
+Lista de Soluções: 
+
+Cidadão 1 -> Caminho Solução: [4][7] | [4][6]
+
+Cidadão 2 -> Caminho Solução: [8][1] | [7][1] | [7][2] | [6][2] | [6][3]
+
+Cidadão 3 -> Caminho Solução: [7][7] | [6][7] | [6][8] | [5][8] | [4][8] | [3][8] | [3][7] | [2][7] | [2][6]
+
+Cidadão 5 -> Caminho Solução: [1][1] | [2][1] | [3][1] | [4][1] | [5][1] | [5][2] | [5][3] | [5][4]
+
+Cidadão 6 -> Caminho Solução: [6][6] | [7][6] | [7][5] | [6][5] | [5][5]
+
+Cidadão 7 -> Caminho Solução: [2][1] | [2][2] | [2][3] | [2][4]
+
+Cidadão 8 -> Caminho Solução: [5][3] | [5][4]
+
+Cidadão 9 -> Caminho Solução: [6][2] | [6][1] | [6][2] | [6][3]
+
+Cidadão 10 -> Caminho Solução: [7][3] | [7][4] | [6][4] | [5][4]
+
+Número de Iterações: 110544
+Tempo até atingir a Solução: 899 ms
+
+____________________________________________________________________
+Número do Teste: 5
+Nome do Teste: instances_8.txt
+Tempo Total de Execução: 1001 ms
+Número de Processos Utilizados: 2
+Número de Cidadãos "Safos": 9
+Lista de Soluções: 
+
+Cidadão 1 -> Caminho Solução: [4][7] | [3][7] | [3][6] | [3][5] | [3][4] | [2][4]
+
+Cidadão 2 -> Caminho Solução: [8][1] | [7][1] | [6][1] | [6][2] | [6][3]
+
+Cidadão 3 -> Caminho Solução: [7][7] | [8][7] | [8][8] | [7][8] | [6][8] | [5][8] | [4][8] | [3][8] | [2][8] | [2][7] | [2][6]
+
+Cidadão 4 -> Caminho Solução: [8][4] | [8][3] | [8][2] | [7][2] | [6][2] | [6][3]
+
+Cidadão 6 -> Caminho Solução: [6][6] | [5][6]
+
+Cidadão 7 -> Caminho Solução: [2][1] | [2][2] | [3][2] | [4][2] | [5][2] | [5][3] | [5][4]
+
+Cidadão 8 -> Caminho Solução: [5][3] | [5][4]
+
+Cidadão 9 -> Caminho Solução: [6][2] | [6][3]
+
+Cidadão 10 -> Caminho Solução: [7][3] | [7][4] | [6][4] | [6][5] | [7][5] | [7][6] | [6][6] | [6][7] | [5][7] | [4][7] | [4][6]
+
+Número de Iterações: 43490
+Tempo até atingir a Solução: 416 ms
+
+____________________________________________________________________
+Número do Teste: 6
+Nome do Teste: instances_8.txt
+Tempo Total de Execução: 1000 ms
+Número de Processos Utilizados: 2
+Número de Cidadãos "Safos": 8
+Lista de Soluções: 
+
+Cidadão 1 -> Caminho Solução: [4][7] | [4][6]
+
+Cidadão 2 -> Caminho Solução: [8][1] | [8][2] | [8][3] | [7][3] | [7][4] | [7][5] | [6][5] | [6][4] | [5][4]
+
+Cidadão 3 -> Caminho Solução: [7][7] | [8][7] | [8][8] | [7][8] | [6][8] | [5][8] | [4][8] | [3][8] | [3][7] | [3][6] | [3][7] | [3][8] | [2][8] | [1][8] | [1][7] | [2][7] | [2][6]
+
+Cidadão 6 -> Caminho Solução: [6][6] | [7][6] | [7][7] | [6][7] | [5][7] | [5][6]
+
+Cidadão 7 -> Caminho Solução: [2][1] | [2][2] | [3][2] | [3][3] | [3][4] | [2][4]
+
+Cidadão 8 -> Caminho Solução: [5][3] | [4][3] | [3][3] | [3][4] | [4][4] | [4][5] | [3][5] | [2][5] | [2][6]
+
+Cidadão 9 -> Caminho Solução: [6][2] | [5][2] | [4][2] | [4][1] | [3][1] | [2][1] | [1][1]
+
+Cidadão 10 -> Caminho Solução: [7][3] | [6][3]
+
+Número de Iterações: 1770
+Tempo até atingir a Solução: 18 ms
+
+____________________________________________________________________
+Número do Teste: 7
+Nome do Teste: instances_8.txt
+Tempo Total de Execução: 1001 ms
+Número de Processos Utilizados: 2
+Número de Cidadãos "Safos": 9
+Lista de Soluções: 
+
+Cidadão 1 -> Caminho Solução: [4][7] | [4][8] | [3][8] | [2][8] | [2][7] | [3][7] | [3][6] | [3][5] | [2][5] | [2][4]
+
+Cidadão 2 -> Caminho Solução: [8][1] | [8][2] | [7][2] | [6][2] | [5][2] | [5][3] | [5][4]
+
+Cidadão 3 -> Caminho Solução: [7][7] | [7][6] | [7][7] | [7][8] | [8][8] | [8][7] | [8][6] | [8][5] | [8][4] | [8][5] | [7][5] | [7][6] | [7][7] | [7][8] | [6][8] | [5][8] | [5][7] | [4][7] | [4][6]
+
+Cidadão 5 -> Caminho Solução: [1][1] | [2][1] | [2][2] | [2][3] | [2][4]
+
+Cidadão 6 -> Caminho Solução: [6][6] | [5][6]
+
+Cidadão 7 -> Caminho Solução: [2][1] | [2][2] | [2][3] | [1][3]
+
+Cidadão 8 -> Caminho Solução: [5][3] | [5][4]
+
+Cidadão 9 -> Caminho Solução: [6][2] | [6][1] | [5][1] | [5][2] | [5][3] | [5][4]
+
+Cidadão 10 -> Caminho Solução: [7][3] | [7][4] | [7][5] | [6][5] | [5][5]
+
+Número de Iterações: 103757
+Tempo até atingir a Solução: 880 ms
+
+____________________________________________________________________
+Número do Teste: 8
+Nome do Teste: instances_8.txt
+Tempo Total de Execução: 1000 ms
+Número de Processos Utilizados: 2
+Número de Cidadãos "Safos": 9
+Lista de Soluções: 
+
+Cidadão 1 -> Caminho Solução: [4][7] | [3][7] | [3][6] | [3][7] | [3][8] | [2][8] | [2][7] | [2][6]
+
+Cidadão 2 -> Caminho Solução: [8][1] | [7][1] | [6][1] | [5][1] | [4][1] | [3][1] | [3][2] | [2][2] | [2][3] | [2][4]
+
+Cidadão 3 -> Caminho Solução: [7][7] | [7][8] | [6][8] | [5][8] | [4][8] | [4][7] | [4][6]
+
+Cidadão 4 -> Caminho Solução: [8][4] | [8][5] | [8][6] | [8][7] | [8][8] | [7][8] | [7][7] | [7][6] | [7][5] | [7][6] | [6][6] | [6][5] | [6][4] | [6][5] | [5][5]
+
+Cidadão 6 -> Caminho Solução: [6][6] | [6][7] | [5][7] | [5][6]
+
+Cidadão 7 -> Caminho Solução: [2][1] | [1][1]
+
+Cidadão 8 -> Caminho Solução: [5][3] | [5][4]
+
+Cidadão 9 -> Caminho Solução: [6][2] | [6][3]
+
+Cidadão 10 -> Caminho Solução: [7][3] | [6][3]
+
+Número de Iterações: 25124
+Tempo até atingir a Solução: 220 ms
+
+____________________________________________________________________
+Número do Teste: 9
+Nome do Teste: instances_8.txt
+Tempo Total de Execução: 1000 ms
+Número de Processos Utilizados: 2
+Número de Cidadãos "Safos": 9
+Lista de Soluções: 
+
+Cidadão 1 -> Caminho Solução: [4][7] | [4][8] | [3][8] | [2][8] | [1][8] | [1][7] | [1][6] | [1][5] | [2][5] | [3][5] | [4][5] | [4][6]
+
+Cidadão 2 -> Caminho Solução: [8][1] | [7][1] | [7][2] | [6][2] | [6][3]
+
+Cidadão 3 -> Caminho Solução: [7][7] | [6][7] | [6][6] | [5][6]
+
+Cidadão 4 -> Caminho Solução: [8][4] | [8][5] | [8][6] | [7][6] | [7][5] | [7][6] | [7][7] | [8][7] | [8][8] | [7][8] | [6][8] | [5][8] | [4][8] | [4][7] | [4][6]
+
+Cidadão 6 -> Caminho Solução: [6][6] | [6][5] | [5][5]
+
+Cidadão 7 -> Caminho Solução: [2][1] | [2][2] | [1][2] | [1][1]
+
+Cidadão 8 -> Caminho Solução: [5][3] | [5][4]
+
+Cidadão 9 -> Caminho Solução: [6][2] | [6][3]
+
+Cidadão 10 -> Caminho Solução: [7][3] | [8][3] | [8][2] | [8][1] | [8][2] | [7][2] | [7][3] | [6][3]
+
+Número de Iterações: 83717
+Tempo até atingir a Solução: 684 ms
+
+____________________________________________________________________
+Número do Teste: 10
+Nome do Teste: instances_8.txt
+Tempo Total de Execução: 1001 ms
+Número de Processos Utilizados: 2
+Número de Cidadãos "Safos": 9
+Lista de Soluções: 
+
+Cidadão 1 -> Caminho Solução: [4][7] | [3][7] | [2][7] | [2][6]
+
+Cidadão 2 -> Caminho Solução: [8][1] | [8][2] | [8][3] | [8][4] | [7][4] | [7][3] | [7][2] | [7][1] | [7][2] | [7][3] | [7][4] | [6][4] | [5][4]
+
+Cidadão 3 -> Caminho Solução: [7][7] | [6][7] | [5][7] | [4][7] | [4][8] | [3][8] | [2][8] | [1][8] | [1][7] | [1][6] | [1][5] | [1][4] | [1][3]
+
+Cidadão 4 -> Caminho Solução: [8][4] | [8][5] | [8][6] | [7][6] | [6][6] | [6][5] | [5][5]
+
+Cidadão 6 -> Caminho Solução: [6][6] | [5][6]
+
+Cidadão 7 -> Caminho Solução: [2][1] | [1][1]
+
+Cidadão 8 -> Caminho Solução: [5][3] | [4][3] | [4][4] | [4][5] | [3][5] | [3][6] | [4][6]
+
+Cidadão 9 -> Caminho Solução: [6][2] | [5][2] | [4][2] | [3][2] | [3][3] | [3][4] | [2][4]
+
+Cidadão 10 -> Caminho Solução: [7][3] | [6][3]
+
+Número de Iterações: 9407
+Tempo até atingir a Solução: 83 ms
+
+____________________________________________________________________
+Tempo Médio de Solução: 366.50 ms
+Número Médio de Iterações: 42523.40
+Número de Soluções Ótimas Encontradas: 0

@@ -1,0 +1,173 @@
+Número do Teste: 1
+Nome do Teste: instances_6.txt
+Tempo Total de Execução: 7 ms
+Número de Processos Utilizados: 2
+Número de Cidadãos "Safos": 3
+Lista de Soluções: 
+
+Cidadão 1 -> Caminho Solução: [3][4] | [3][3] | [4][3] | [5][3] | [5][2] | [6][2] | [6][1]
+
+Cidadão 2 -> Caminho Solução: [2][1] | [2][2]
+
+Cidadão 3 -> Caminho Solução: [3][1] | [4][1] | [4][2]
+
+Número de Iterações: 1
+Tempo até atingir a Solução: 3 ms
+
+____________________________________________________________________
+Número do Teste: 2
+Nome do Teste: instances_6.txt
+Tempo Total de Execução: 5 ms
+Número de Processos Utilizados: 2
+Número de Cidadãos "Safos": 3
+Lista de Soluções: 
+
+Cidadão 1 -> Caminho Solução: [3][4] | [3][3] | [3][2] | [3][3] | [2][3] | [1][3]
+
+Cidadão 2 -> Caminho Solução: [2][1] | [2][2]
+
+Cidadão 3 -> Caminho Solução: [3][1] | [4][1] | [5][1] | [5][2] | [5][3] | [4][3] | [4][2]
+
+Número de Iterações: 15
+Tempo até atingir a Solução: 2 ms
+
+____________________________________________________________________
+Número do Teste: 3
+Nome do Teste: instances_6.txt
+Tempo Total de Execução: 8 ms
+Número de Processos Utilizados: 2
+Número de Cidadãos "Safos": 3
+Lista de Soluções: 
+
+Cidadão 1 -> Caminho Solução: [3][4] | [3][5] | [2][5] | [2][6] | [3][6] | [4][6] | [4][5] | [4][4] | [4][3] | [3][3] | [3][2] | [4][2]
+
+Cidadão 2 -> Caminho Solução: [2][1] | [2][2]
+
+Cidadão 3 -> Caminho Solução: [3][1] | [4][1] | [5][1] | [6][1]
+
+Número de Iterações: 1
+Tempo até atingir a Solução: 2 ms
+
+____________________________________________________________________
+Número do Teste: 4
+Nome do Teste: instances_6.txt
+Tempo Total de Execução: 5 ms
+Número de Processos Utilizados: 2
+Número de Cidadãos "Safos": 3
+Lista de Soluções: 
+
+Cidadão 1 -> Caminho Solução: [3][4] | [3][5] | [2][5] | [1][5] | [1][4] | [1][3]
+
+Cidadão 2 -> Caminho Solução: [2][1] | [2][2]
+
+Cidadão 3 -> Caminho Solução: [3][1] | [3][2] | [4][2]
+
+Número de Iterações: 28
+Tempo até atingir a Solução: 2 ms
+
+____________________________________________________________________
+Número do Teste: 5
+Nome do Teste: instances_6.txt
+Tempo Total de Execução: 6 ms
+Número de Processos Utilizados: 2
+Número de Cidadãos "Safos": 3
+Lista de Soluções: 
+
+Cidadão 1 -> Caminho Solução: [3][4] | [3][3] | [4][3] | [5][3] | [6][3] | [6][2] | [6][1]
+
+Cidadão 2 -> Caminho Solução: [2][1] | [2][2]
+
+Cidadão 3 -> Caminho Solução: [3][1] | [3][2] | [4][2]
+
+Número de Iterações: 33
+Tempo até atingir a Solução: 2 ms
+
+____________________________________________________________________
+Número do Teste: 6
+Nome do Teste: instances_6.txt
+Tempo Total de Execução: 4 ms
+Número de Processos Utilizados: 2
+Número de Cidadãos "Safos": 3
+Lista de Soluções: 
+
+Cidadão 1 -> Caminho Solução: [3][4] | [3][5] | [3][6] | [4][6] | [5][6] | [5][5] | [4][5] | [4][4] | [5][4] | [5][3] | [6][3] | [6][2] | [6][1]
+
+Cidadão 2 -> Caminho Solução: [2][1] | [2][2]
+
+Cidadão 3 -> Caminho Solução: [3][1] | [3][2] | [2][2]
+
+Número de Iterações: 5
+Tempo até atingir a Solução: 2 ms
+
+____________________________________________________________________
+Número do Teste: 7
+Nome do Teste: instances_6.txt
+Tempo Total de Execução: 9 ms
+Número de Processos Utilizados: 2
+Número de Cidadãos "Safos": 3
+Lista de Soluções: 
+
+Cidadão 1 -> Caminho Solução: [3][4] | [2][4] | [2][3] | [2][4] | [2][5] | [2][6] | [1][6] | [1][5] | [1][4] | [1][3]
+
+Cidadão 2 -> Caminho Solução: [2][1] | [2][2]
+
+Cidadão 3 -> Caminho Solução: [3][1] | [3][2] | [4][2]
+
+Número de Iterações: 54
+Tempo até atingir a Solução: 5 ms
+
+____________________________________________________________________
+Número do Teste: 8
+Nome do Teste: instances_6.txt
+Tempo Total de Execução: 11 ms
+Número de Processos Utilizados: 2
+Número de Cidadãos "Safos": 3
+Lista de Soluções: 
+
+Cidadão 1 -> Caminho Solução: [3][4] | [3][3] | [4][3] | [5][3] | [6][3] | [6][4] | [5][4] | [5][5] | [5][6] | [4][6] | [4][5] | [4][6] | [3][6] | [2][6] | [2][5] | [2][4] | [2][3] | [1][3]
+
+Cidadão 2 -> Caminho Solução: [2][1] | [2][2]
+
+Cidadão 3 -> Caminho Solução: [3][1] | [3][2] | [4][2]
+
+Número de Iterações: 10
+Tempo até atingir a Solução: 3 ms
+
+____________________________________________________________________
+Número do Teste: 9
+Nome do Teste: instances_6.txt
+Tempo Total de Execução: 6 ms
+Número de Processos Utilizados: 2
+Número de Cidadãos "Safos": 3
+Lista de Soluções: 
+
+Cidadão 1 -> Caminho Solução: [3][4] | [2][4] | [2][5] | [1][5] | [1][4] | [1][3]
+
+Cidadão 2 -> Caminho Solução: [2][1] | [2][2]
+
+Cidadão 3 -> Caminho Solução: [3][1] | [3][2] | [4][2]
+
+Número de Iterações: 2
+Tempo até atingir a Solução: 2 ms
+
+____________________________________________________________________
+Número do Teste: 10
+Nome do Teste: instances_6.txt
+Tempo Total de Execução: 8 ms
+Número de Processos Utilizados: 2
+Número de Cidadãos "Safos": 3
+Lista de Soluções: 
+
+Cidadão 1 -> Caminho Solução: [3][4] | [4][4] | [4][3] | [5][3] | [6][3] | [6][2] | [5][2] | [5][1] | [5][2] | [4][2]
+
+Cidadão 2 -> Caminho Solução: [2][1] | [2][2]
+
+Cidadão 3 -> Caminho Solução: [3][1] | [3][2] | [3][3] | [2][3] | [2][4] | [3][4] | [3][5] | [4][5] | [4][6] | [3][6] | [2][6] | [2][5] | [1][5] | [1][4] | [1][3]
+
+Número de Iterações: 21
+Tempo até atingir a Solução: 4 ms
+
+____________________________________________________________________
+Tempo Médio de Solução: 2.70 ms
+Número Médio de Iterações: 17.00
+Número de Soluções Ótimas Encontradas: 10

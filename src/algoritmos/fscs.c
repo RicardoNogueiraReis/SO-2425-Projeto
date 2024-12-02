@@ -21,7 +21,7 @@ int calculateMaxSolutions(const int numCidadaos, const int numSupermercados) {
 
 int findSafeCitizen(int citizenID, PtMapaEsquina mapa, pt_FileTestData data, PtPathList pathList) {
     
-    pt_Cidadao citizen = data_getCidadao(data, citizenID);
+    Cidadao citizen = data_getCidadao(data, citizenID-1);
 
     ChoiceList choiceList;
     listCreate(&choiceList);
@@ -29,27 +29,28 @@ int findSafeCitizen(int citizenID, PtMapaEsquina mapa, pt_FileTestData data, PtP
     Stack pathsStack;
     stackCreate(&pathsStack);
 
+    StackElem esquina;
+
     bool isSupermarket = false;
 
-    mapaVisitEsquina(&mapa, citizen->avenida, citizen->rua);
+    mapaVisitEsquina(mapa, citizen.avenida, citizen.rua);
 
     do
     {
-        StackElem esquina;
-        esquina_init(&esquina, citizen->avenida, citizen->rua);
+        esquina_init(&esquina, citizen.avenida, citizen.rua);
         stackPush(&pathsStack, esquina);
 
         listClear(&choiceList);
 
         bool isVisited;
         
-        if (mapaIsEsquinaVisited(mapa, citizen->avenida-1, citizen->rua, &isVisited) == 0 && !isVisited)
+        if (mapaIsEsquinaVisited(mapa, citizen.avenida-1, citizen.rua, &isVisited) == 0 && !isVisited)
             listAdd(&choiceList, 0, NORTE);
-        if (mapaIsEsquinaVisited(mapa, citizen->avenida+1, citizen->rua, &isVisited) == 0 && !isVisited)
+        if (mapaIsEsquinaVisited(mapa, citizen.avenida+1, citizen.rua, &isVisited) == 0 && !isVisited)
             listAdd(&choiceList, 0, SUL);
-        if (mapaIsEsquinaVisited(mapa, citizen->avenida, citizen->rua-1, &isVisited) == 0 && !isVisited)
+        if (mapaIsEsquinaVisited(mapa, citizen.avenida, citizen.rua-1, &isVisited) == 0 && !isVisited)
             listAdd(&choiceList, 0, OESTE);
-        if (mapaIsEsquinaVisited(mapa, citizen->avenida-1, citizen->rua+1, &isVisited) == 0 && !isVisited)
+        if (mapaIsEsquinaVisited(mapa, citizen.avenida-1, citizen.rua+1, &isVisited) == 0 && !isVisited)
             listAdd(&choiceList, 0, ESTE);
         if (listIsEmpty(&choiceList))
             return 0;
@@ -63,23 +64,25 @@ int findSafeCitizen(int citizenID, PtMapaEsquina mapa, pt_FileTestData data, PtP
         switch (direction)
         {
             case NORTE:
-                citizen->avenida--;
+                citizen.avenida--;
             break;
             case SUL:
-                citizen->avenida++;
+                citizen.avenida++;
             break;
             case OESTE:
-                citizen->rua--;
+                citizen.rua--;
             break;
             case ESTE:
-                citizen->rua++;
+                citizen.rua++;
             break;
         }
-        mapaVisitEsquina(&mapa, citizen->avenida, citizen->rua);
+        mapaVisitEsquina(mapa, citizen.avenida, citizen.rua);
 
-        mapaIsEsquinaSuperMarket(mapa, citizen->avenida, citizen->rua, &isSupermarket);
+        mapaIsEsquinaSuperMarket(mapa, citizen.avenida, citizen.rua, &isSupermarket);
     }
     while (!isSupermarket);
+    esquina_init(&esquina, citizen.avenida, citizen.rua);
+    stackPush(&pathsStack, esquina);
     plistAdd(pathList, citizenID, pathsStack);
     return 1;
 }

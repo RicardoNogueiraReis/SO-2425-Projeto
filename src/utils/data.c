@@ -84,8 +84,8 @@ int data_getNumeroSupermercados(pt_FileTestData data) {
     return data->NumeroSupermercados;
 }
 
-pt_Cidadao data_getCidadao(pt_FileTestData data, int i) {
-    return &data->Cidadaos[i];
+Cidadao data_getCidadao(pt_FileTestData data, int i) {
+    return data->Cidadaos[i];
 }
 
 pt_supermercado data_getSupermercado(pt_FileTestData data, int i) {

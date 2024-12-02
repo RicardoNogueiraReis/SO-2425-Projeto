@@ -31,7 +31,7 @@ int mapaIsEsquinaVisited(PtMapaEsquina mapa, int avenida, int rua, bool *esquina
     if (avenida < 1 || avenida > mapa->maxAvenidas || rua < 1 || rua > mapa->maxRuas)
         return MAPA_INVALID_POSITION;    
 
-    esquinaStatus = &mapa->mapa[avenida][rua].isVisited;
+    *esquinaStatus = mapa->mapa[avenida][rua].isVisited;
 
     return MAPA_SUCCESS;
 }
@@ -54,7 +54,19 @@ int mapaIsEsquinaSuperMarket(PtMapaEsquina mapa, int avenida, int rua, bool *esq
     if (avenida < 1 || avenida > mapa->maxAvenidas || rua < 1 || rua > mapa->maxRuas)
         return MAPA_INVALID_POSITION;    
 
-    esquinaStatus = &mapa->mapa[avenida][rua].isSuperMarket;
+    *esquinaStatus = mapa->mapa[avenida][rua].isSuperMarket;
+
+    return MAPA_SUCCESS;
+}
+
+int mapaSetEsquinaSuperMarket(PtMapaEsquina mapa, int avenida, int rua) {
+    if (mapa == NULL)
+        return MAPA_IS_NULL;
+
+    if (avenida < 1 || avenida > mapa->maxAvenidas || rua < 1 || rua > mapa->maxRuas)
+        return MAPA_INVALID_POSITION;    
+
+    mapa->mapa[avenida][rua].isSuperMarket = true;
 
     return MAPA_SUCCESS;
 }

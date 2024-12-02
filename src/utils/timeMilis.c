@@ -12,7 +12,7 @@ int createTime(PtTimeMillis timer) {
     return TIMER_SUCCESS;
 }
 
-createTimeFromTimeDiff(PtTimeMillis resultTimer, PtTimeMillis startTimer, PtTimeMillis endTimer) {
+int createTimeFromTimeDiff(PtTimeMillis resultTimer, PtTimeMillis startTimer, PtTimeMillis endTimer) {
     if (resultTimer == NULL || startTimer == NULL || endTimer == NULL)
         return TIMER_IS_NULL;
 

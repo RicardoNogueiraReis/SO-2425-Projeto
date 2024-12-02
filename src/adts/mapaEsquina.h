@@ -59,3 +59,13 @@ int mapaVisitEsquina(PtMapaEsquina mapa, int avenida, int rua);
  * @return int - Success (0) or Error (>0)
  */
 int mapaIsEsquinaSuperMarket(PtMapaEsquina mapa, int avenida, int rua, bool *esquinaStatus);
+
+/**
+ * @brief Sets the supermarket state to true on a corner from the map.
+ * 
+ * @param mapa The Map
+ * @param avenida The Avenue
+ * @param rua The Street
+ * @return int - Success (0) or Error (>0)
+ */
+int mapaSetEsquinaSuperMarket(PtMapaEsquina mapa, int avenida, int rua);

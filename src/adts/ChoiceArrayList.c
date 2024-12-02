@@ -13,7 +13,7 @@ int listCreate(PtChoiceList list) {
 int listAdd(PtChoiceList list, int index, ListElem elem) {
     if (list == NULL)
         return LIST_IS_NULL;
-    if (index >= list->size || index < 0)
+    if (index > list->size || index < 0)
         return LIST_INVALID_POSITION;     
 
     for (int i = list->size; i > index; i--)
@@ -28,7 +28,7 @@ int listAdd(PtChoiceList list, int index, ListElem elem) {
 int listRemove(PtChoiceList list, int index, ListElem *remElem) {
     if (list == NULL)
         return LIST_IS_NULL;
-    if (index >= list->size || index < 0)
+    if (index > list->size || index < 0)
         return LIST_INVALID_POSITION;
     
     if(remElem != NULL)
@@ -44,7 +44,7 @@ int listRemove(PtChoiceList list, int index, ListElem *remElem) {
 int listGet(PtChoiceList list, int index, ListElem* elem) {
     if (list == NULL)
         return LIST_IS_NULL;
-    if (index >= list->size || index < 0)
+    if (index > list->size || index < 0)
         return LIST_INVALID_POSITION;
 
     *elem = list->elements[index];
@@ -71,6 +71,7 @@ int listClear(PtChoiceList list) {
         return LIST_IS_NULL;
 
     list->size = 0;
+    return LIST_SUCCESS;
 }
 
 void listPrint(PtChoiceList list) {

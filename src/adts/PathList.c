@@ -73,19 +73,20 @@ int plistClear(PtPathList plist) {
         return LIST_IS_NULL;
 
     plist->size = 0;
+    return LIST_SUCCESS;
 }
 
 void plistPrint(PtPathList plist) {
     if (plist == NULL)
         return;
     
-    if (listIsEmpty(plist))
+    if (plistIsEmpty(plist))
     {
         printf("The plist is empty!\n");
         return;
     }
     
-    printf("Lista de Soluções: ");
+    printf("Lista de Soluções: \n");
     for (int i = 0; i < MAX_PATH_SIZE; i++)
     {
         if (plist->paths[i].size == 0)

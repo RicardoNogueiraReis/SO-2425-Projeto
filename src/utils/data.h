@@ -28,6 +28,6 @@ int data_getNumeroCidadaos(pt_FileTestData data);
 
 int data_getNumeroSupermercados(pt_FileTestData data);
 
-pt_Cidadao data_getCidadao(pt_FileTestData data, int i);
+Cidadao data_getCidadao(pt_FileTestData data, int i);
 
 pt_supermercado data_getSupermercado(pt_FileTestData data, int i);

@@ -19,6 +19,8 @@
         "initializer_list": "c",
         "choicelist.h": "c",
         "timemilis.h": "c",
-        "time.h": "c"
+        "time.h": "c",
+        "stack.h": "c",
+        "resulttable.h": "c"
     }
 }

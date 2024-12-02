@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "Stack.h"
 
 int stackCreate(PtStack stack) {
@@ -15,7 +16,7 @@ int stackPush(PtStack stack, StackElem elem) {
     if (stack->size == MAX_STACK_SIZE)
         return STACK_IS_FULL;
     
-    stack->elements[stack->size++];
+    stack->elements[stack->size++] = elem;
     return STACK_SUCCESS;
 }
 

@@ -2,9 +2,9 @@
 CC = gcc
 CFLAGS = -Wall -pthread
 DEBUG_FLAGS = -g
-SRC = main.c utils/parameters.c adts/esquina.c adts/list/listArrayList.c adts/list/listElem.c entities/cidadao.c entities/supermercado.c utils/data.c algoritmos/fscs.c
+SRC = main.c utils/parameters.c adts/esquina.c adts/ChoiceArrayList.c Entities/cidadao.c Entities/supermercado.c utils/data.c algoritmos/fscs.c adts/mapaEsquina.c adts/PathList.c adts/StackArray.c utils/timeMilis.c utils/resultTable.c
 
-SRC_TESTE = main-teste.c utils/parameters.c adts/esquina.c entities/cidadao.c entities/supermercado.c utils/data.c algoritmos/fscs.c
+SRC_TESTE = main-teste.c utils/parameters.c adts/esquina.c entities/cidadao.c entities/supermercado.c utils/data.c algoritmos/fscs.c 
 
 TARGET = prog
 
