@@ -6,7 +6,6 @@
 
 #include "fscs.h"
 #include "../utils/data.h"
-// #include "../adts/list/list.h"
 #include "../adts/ChoiceList.h"
 #include "../adts/Stack.h"
 
