@@ -36,6 +36,7 @@ int main(int argc, char **argv)
     Millis avgExecTime = 0;
     int avgNIterations = 0;
     int nBestSoluction = 0;
+    int maxSolutions = 0;
 
     const char *FILE_NAME = argv[1];
     const int NUMBER_OF_PROCESSES = atoi(argv[2]);
@@ -86,7 +87,7 @@ int main(int argc, char **argv)
 
         readFileData(&data, FILE_NAME);
 
-        int maxSolutions = calculateMaxSolutions(data.NumeroCidadaos, data.NumeroSupermercados);
+        maxSolutions = calculateMaxSolutions(data.NumeroCidadaos, data.NumeroSupermercados);
         
         Stack solutionList[MAXIMUM_SOLUCTIONS];
         for(int i = 0; i < maxSolutions; i++) {
@@ -179,17 +180,42 @@ int main(int argc, char **argv)
         avgNIterations += sharedPathList->numIterations;
         
         resultTableCreate(&results[t], t+1, FILE_NAME, tExecTimeMS, NUMBER_OF_PROCESSES, nCidadaosSafos, *sharedPathList, sharedPathList->numIterations, sharedPathList->execTime);
+    
+        sem_close(shared_memory);
     }
+
+    int bestSoluctionIndex = -1;
+    int minCornerCount = __INT_MAX__;
     
     for (int t = 0; t < 10; t++)
     {
+        PathList soluction = results[t].solucao;
+        int cornerCount = 0;
+
+        if (soluction.size == maxSolutions)
+        {
+            for (int j = 0; j < soluction.size; j++)
+            {
+                cornerCount += soluction.paths[j].size;
+            }
+
+            if (minCornerCount > cornerCount)
+            {
+                minCornerCount = cornerCount;
+                bestSoluctionIndex = t;
+            }
+        }
+        
         resultTablePrint(&results[t]);
         printf("\n____________________________________________________________________\n");
     }
+    
 
     printf("Tempo Médio de Solução: %.2f ms\n", (float) avgExecTime / 10);
     printf("Número Médio de Iterações: %.2f\n", (float) avgNIterations / 10);
     printf("Número de Soluções Ótimas Encontradas: %d\n", nBestSoluction);
+    printf("Melhor Lista de Soluções Encontrada: Teste %d\n", bestSoluctionIndex+1);
+    plistPrint(&results[bestSoluctionIndex].solucao);
     
     return EXIT_SUCCESS;
 }

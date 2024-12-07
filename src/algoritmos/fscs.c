@@ -49,7 +49,7 @@ int findSafeCitizen(int citizenID, PtMapaEsquina mapa, pt_FileTestData data, PtP
             listAdd(&choiceList, 0, SUL);
         if (mapaIsEsquinaVisited(mapa, citizen.avenida, citizen.rua-1, &isVisited) == 0 && !isVisited)
             listAdd(&choiceList, 0, OESTE);
-        if (mapaIsEsquinaVisited(mapa, citizen.avenida-1, citizen.rua+1, &isVisited) == 0 && !isVisited)
+        if (mapaIsEsquinaVisited(mapa, citizen.avenida, citizen.rua+1, &isVisited) == 0 && !isVisited)
             listAdd(&choiceList, 0, ESTE);
         if (listIsEmpty(&choiceList))
             return 0;
