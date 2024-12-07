@@ -22,6 +22,7 @@
 
 #define ONE_MILISECOND 1000
 #define MAXIMUM_SOLUCTIONS 30
+#define NUMBER_OF_TESTS 10
 
 /**
  * @brief Main function
@@ -32,17 +33,16 @@
  */
 int main(int argc, char **argv)
 {
-    ResultTable results[10];
+    ResultTable results[NUMBER_OF_TESTS];
     Millis avgExecTime = 0;
     int avgNIterations = 0;
     int nBestSoluction = 0;
-    int maxSolutions = 0;
 
     const char *FILE_NAME = argv[1];
     const int NUMBER_OF_PROCESSES = atoi(argv[2]);
     const int EXECUTION_TIME = atoi(argv[3]);
     
-    for (int t = 0; t < 10; t++)
+    for (int t = 0; t < NUMBER_OF_TESTS; t++)
     {
         TimeMillis parentTime; //Timestamp
         createTime(&parentTime);
@@ -87,7 +87,7 @@ int main(int argc, char **argv)
 
         readFileData(&data, FILE_NAME);
 
-        maxSolutions = calculateMaxSolutions(data.NumeroCidadaos, data.NumeroSupermercados);
+        int maxSolutions = calculateMaxSolutions(data.NumeroCidadaos, data.NumeroSupermercados);
         
         Stack solutionList[MAXIMUM_SOLUCTIONS];
         for(int i = 0; i < maxSolutions; i++) {
@@ -186,8 +186,17 @@ int main(int argc, char **argv)
 
     int bestSoluctionIndex = -1;
     int minCornerCount = __INT_MAX__;
+    int maxSolutions = -1;
+
+    for (int t = 0; t < NUMBER_OF_TESTS; t++)
+    {
+        int nSoluction = results[t].solucao.size;
+        if (maxSolutions < nSoluction)
+            maxSolutions = nSoluction;
+    }
     
-    for (int t = 0; t < 10; t++)
+    
+    for (int t = 0; t < NUMBER_OF_TESTS; t++)
     {
         PathList soluction = results[t].solucao;
         int cornerCount = 0;
@@ -211,8 +220,8 @@ int main(int argc, char **argv)
     }
     
 
-    printf("Tempo Médio de Solução: %.2f ms\n", (float) avgExecTime / 10);
-    printf("Número Médio de Iterações: %.2f\n", (float) avgNIterations / 10);
+    printf("Tempo Médio de Solução: %.2f ms\n", (float) avgExecTime / NUMBER_OF_TESTS);
+    printf("Número Médio de Iterações: %.2f\n", (float) avgNIterations / NUMBER_OF_TESTS);
     printf("Número de Soluções Ótimas Encontradas: %d\n", nBestSoluction);
     printf("Melhor Lista de Soluções Encontrada: Teste %d\n", bestSoluctionIndex+1);
     plistPrint(&results[bestSoluctionIndex].solucao);
